@@ -299,11 +299,11 @@ details.acc .b .btn{margin-top:.8rem}
 .lt .sec-h a{color:#a8812f}
 
 /* Hero */
-.hero{position:relative;height:clamp(460px,76vh,600px);overflow:hidden;background:var(--navy)}
+.hero{position:relative;min-height:clamp(430px,66vh,540px);display:flex;align-items:center;overflow:hidden;background:var(--navy)}
 .hs{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 7s ease}
 .hs.on{opacity:1;transform:scale(1)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,19,49,.97) 12%,rgba(1,19,49,.6) 55%,rgba(1,19,49,.35))}
-.hc{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 1.25rem 3.4rem}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,19,49,.92),rgba(1,19,49,.7) 50%,rgba(1,19,49,.6))}
+.hc{position:relative;z-index:2;width:100%;padding:2.6rem 1.25rem 3.6rem}
 .hero .eyebrow{color:var(--gold)}
 .hero h1{font-size:1.9rem;color:#fff;line-height:1.2}
 .hero h1 em{font-style:normal;color:var(--gold);display:block}
