@@ -1,0 +1,15 @@
+{
+  "name": "Apostle Fatoki Global Outreach",
+  "short_name": "Apostle Fatoki",
+  "description": "Sermons, live services, events, giving, prayer and the School of Ministry.",
+  "start_url": "mobile.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#011331",
+  "theme_color": "#011331",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
