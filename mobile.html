@@ -92,7 +92,7 @@ p{line-height:1.6}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,19,49,.96) 10%,rgba(1,19,49,.25))}
 .slide .c{position:absolute;left:0;right:0;bottom:0;padding:1rem;z-index:2}
 .slide h3{font-size:1.25rem;margin:.2rem 0 .3rem}
-.slide p{font-size:.85rem;color:#d3dbea}
+.slide p{font-size:.85rem;color:var(--txt)}
 .dots{display:flex;gap:.35rem;justify-content:center;margin:.4rem 0 .2rem}
 .dots i{width:18px;height:3px;background:rgba(255,255,255,.25);transition:.25s}
 .dots i.on{background:var(--gold);width:28px}
@@ -129,7 +129,7 @@ p{line-height:1.6}
 .save.on{color:var(--gold)}.save.on svg{fill:var(--gold)}
 .chips{display:flex;gap:.45rem;overflow-x:auto;padding:.2rem 0 .8rem;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:none;padding:.5rem .85rem;border:1px solid var(--line);background:transparent;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#cfd7e6;transition:.2s}
+.chip{flex:none;padding:.5rem .85rem;border:1px solid var(--line);background:transparent;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--txt);transition:.2s}
 .chip.on,.chip:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .searchbox{display:flex;align-items:center;gap:.5rem;background:#fff;color:var(--ink);padding:0 .8rem;margin-bottom:.8rem}
 .searchbox svg{width:18px;height:18px;stroke:#6b7690;fill:none;stroke-width:2;flex:none}
@@ -155,11 +155,11 @@ p{line-height:1.6}
 .card{background:var(--navy2);border:1px solid var(--line);padding:1.1rem;margin-bottom:.7rem;transition:.2s}
 .card:hover{border-color:var(--gold)}
 .card h3{font-size:1rem;margin-bottom:.35rem;color:var(--gold)}
-.card p{font-size:.9rem;color:#cfd7e6}
+.card p{font-size:.9rem;color:var(--txt)}
 
 /* Give */
 .seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-bottom:1rem}
-.seg button{padding:.75rem;border:0;background:transparent;font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:#cfd7e6}
+.seg button{padding:.75rem;border:0;background:transparent;font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--txt)}
 .seg button.on{background:var(--gold);color:var(--navy)}
 .amt{font-family:var(--serif);font-size:2.6rem;text-align:center;color:var(--gold);margin:.3rem 0 .8rem}
 .amts{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
@@ -169,7 +169,7 @@ p{line-height:1.6}
 .method:hover{border-color:var(--gold)}
 .method .ic{width:46px;height:46px;display:grid;place-items:center;font-weight:800;font-size:1.1rem}
 .method b{display:block;font-size:.92rem}
-.method small{color:#cfd7e6;font-size:.8rem;word-break:break-all}
+.method small{color:var(--txt);font-size:.8rem;word-break:break-all}
 
 /* More menu */
 .prof{display:flex;align-items:center;gap:.9rem;padding:1.2rem 1rem;border-bottom:1px solid var(--line);background:linear-gradient(135deg,var(--navy2),var(--navy))}
@@ -197,13 +197,13 @@ p{line-height:1.6}
 .val{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem}
 .val div{padding:.9rem;border:1px solid var(--line);background:var(--navy2)}
 .val b{display:block;font-family:var(--serif);color:var(--gold);font-size:.95rem;margin-bottom:.25rem}
-.val p{font-size:.8rem;color:#cfd7e6;line-height:1.45}
+.val p{font-size:.8rem;color:var(--txt);line-height:1.45}
 details.acc{border:1px solid var(--line);background:var(--navy2);margin-bottom:.55rem}
 details.acc summary{list-style:none;cursor:pointer;padding:1rem;display:flex;gap:.7rem;align-items:center;font-weight:600;font-size:.92rem}
 details.acc summary::-webkit-details-marker{display:none}
 details.acc summary::before{content:"";border-left:8px solid var(--gold);border-top:6px solid transparent;border-bottom:6px solid transparent;transition:transform .25s;flex:none}
 details.acc[open] summary::before{transform:rotate(90deg)}
-details.acc .b{padding:0 1rem 1rem 2.3rem;color:#cfd7e6;font-size:.88rem}
+details.acc .b{padding:0 1rem 1rem 2.3rem;color:var(--txt);font-size:.88rem}
 details.acc .b .btn{margin-top:.8rem}
 .steps{counter-reset:s}
 .steps div{counter-increment:s;display:grid;grid-template-columns:38px 1fr;gap:.7rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
@@ -276,6 +276,155 @@ details.acc .b .btn{margin-top:.8rem}
 #splash .bar2{width:120px;height:2px;background:rgba(230,181,88,.2);margin-top:1.4rem;overflow:hidden}
 #splash .bar2::after{content:"";display:block;width:40%;height:100%;background:var(--gold);animation:ld 1s infinite}
 @keyframes ld{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+
+/* ===== v2 classic ===== */
+.lt{--muted:#6b7487;--txt:#4a5368;--line2:rgba(15,44,73,.12);background:var(--ivory);color:var(--ink)}
+.lt h1,.lt h2,.lt h3,.lt h4{color:var(--navy)}
+.lt .eyebrow{color:#a8812f}
+.lt p{color:var(--txt)}
+.center{text-align:center}
+.dv{display:block;width:60px;height:3px;background:var(--gold);margin:.8rem 0 1.1rem}
+.center .dv,.tc .dv{margin-inline:auto}
+.lt .sec{padding:2.2rem 1.1rem 1.6rem}
+.lt .sec.alt{background:#fff}
+.tc{text-align:center;margin-bottom:.4rem}
+.tc h2{font-size:1.35rem}
+.lead{font-size:.95rem;line-height:1.7;margin-bottom:1rem}
+.sig{font-family:var(--serif);color:var(--navy)!important;font-size:1.05rem;margin-top:.2rem}
+.role{font-size:.7rem!important;letter-spacing:.16em;text-transform:uppercase;color:#a8812f!important;margin-bottom:1.2rem}
+.lt .btn-line{color:var(--navy);border-color:var(--gold)}
+.lt .btn-line:hover{background:var(--gold);color:var(--navy)}
+.lt .sec-h h2{font-size:1.15rem}
+.lt .sec-h h2::after{content:"";display:block;width:44px;height:3px;background:var(--gold);margin-top:.5rem}
+.lt .sec-h a{color:#a8812f}
+
+/* Hero */
+.hero{position:relative;height:clamp(460px,76vh,600px);overflow:hidden;background:var(--navy)}
+.hs{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 7s ease}
+.hs.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,19,49,.97) 12%,rgba(1,19,49,.6) 55%,rgba(1,19,49,.35))}
+.hc{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 1.25rem 3.4rem}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:1.9rem;color:#fff;line-height:1.2}
+.hero h1 em{font-style:normal;color:var(--gold);display:block}
+.hc p{color:#d5dcea;margin:.8rem 0 1.4rem;font-size:.95rem}
+.ha{display:flex;flex-wrap:wrap;gap:.6rem}
+.ha .btn-gold{flex:1 1 100%}.ha .btn-ghost{flex:1}
+.ha .btn-ghost:hover{background:#fff;color:var(--navy)}
+.hd{position:absolute;z-index:3;bottom:1.4rem;left:1.25rem;display:flex;gap:.45rem}
+.hd button{width:30px;height:3px;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer;transition:.3s}
+.hd button.on{background:var(--gold)}
+
+/* Quick links band */
+.band{background:var(--navy);border-top:1px solid var(--line)}
+.band .quick{gap:0}
+.band .q{background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:#fff;padding:1.1rem .4rem}
+.band .q:nth-child(3n){border-right:0}
+.band .q:hover,.band .q:active{background:var(--navy2);transform:none}
+
+/* Sermon cards */
+.lt .sc h4{color:var(--navy);font-family:var(--serif);font-size:.88rem}
+.lt .thumb{border:0}
+.lt .row{border-bottom:1px solid var(--line2)}
+
+/* Verse */
+.verse{margin:0;border:0;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);background:var(--navy);padding:2.2rem 1.4rem}
+.verse q{font-style:italic;color:#fff}
+
+/* Promo band */
+.promo{position:relative;background-size:cover;background-position:center;background-color:var(--navy);text-align:center}
+.promo::before{content:"";position:absolute;inset:0;background:rgba(1,19,49,.82)}
+.promo .pc{position:relative;padding:3rem 1.4rem}
+.promo h2{color:#fff;font-size:1.35rem}
+.promo .dv{margin-inline:auto}
+.promo p{color:#d5dcea;margin-bottom:1.3rem}
+.promo .eyebrow{color:var(--gold)}
+
+/* Page banners */
+.banner{height:210px}
+.banner::after{background:linear-gradient(0deg,rgba(1,19,49,.92) 10%,rgba(1,19,49,.55))}
+.banner .c{left:1rem;right:1rem;bottom:auto;top:50%;transform:translateY(-50%);text-align:center}
+.banner h1{color:#fff!important;font-size:1.6rem}
+.banner .eyebrow{color:var(--gold)!important}
+.banner .dv{margin:.7rem auto 0}
+
+/* Cards and lists */
+.lt .card{background:#fff;border:1px solid var(--line2);border-top:3px solid var(--gold);transition:box-shadow .25s,transform .25s}
+.lt .card:hover{border-color:var(--line2);border-top-color:var(--gold);box-shadow:0 10px 24px rgba(1,19,49,.1);transform:translateY(-2px)}
+.lt .card h3{color:var(--navy)}
+.lt .ev{background:#fff;border:1px solid var(--line2);transition:box-shadow .25s,border-color .25s}
+.lt .ev:hover{border-color:var(--gold);box-shadow:0 8px 20px rgba(1,19,49,.08)}
+.lt .ev .d{background:var(--navy);color:var(--gold)}
+.lt .ev h4{font-family:var(--serif);font-size:.95rem}
+.lt .tag{color:#8a6a24;border-color:var(--gold)}
+.lt .val div{background:#fff;border:1px solid var(--line2);border-top:3px solid var(--gold)}
+.lt .val b{color:var(--navy)}
+.lt details.acc{background:#fff;border:1px solid var(--line2)}
+.lt details.acc summary{color:var(--navy)}
+.lt details.acc .b{color:var(--txt)}
+.lt .steps div{border-bottom:1px solid var(--line2)}
+.lt .steps div::before{color:#a8812f}
+.lt .steps b{color:var(--navy)}
+.lt .team{background:#fff;border:1px solid var(--line2)}
+.lt .team:hover{border-color:var(--gold)}
+.lt .team .ic{background:var(--navy);border:0}
+.lt .contact a.li{background:#fff;border:1px solid var(--line2);color:var(--ink)}
+.lt .contact a.li:hover{border-color:var(--gold)}
+.lt .contact small{color:#a8812f}
+.lt .method{background:#fff;border:1px solid var(--line2)}
+.lt .method:hover{border-color:var(--gold)}
+.lt .method b{color:var(--navy)}
+.lt .method small{color:var(--txt)}
+.lt .method .ic{color:#fff}
+.lt .chip{border-color:var(--line2);color:var(--navy);background:#fff}
+.lt .chip.on,.lt .chip:hover{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+.lt .searchbox{border:1px solid var(--line2)}
+.lt .seg{border-color:var(--line2);background:#fff}
+.lt .seg button{color:var(--navy)}
+.lt .seg button.on{background:var(--navy);color:var(--gold)}
+.lt .amt{color:var(--navy)}
+.lt .amts button{border-color:var(--line2);background:#fff;color:var(--navy)}
+.lt .amts button.on,.lt .amts button:hover{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+
+/* Forms */
+.lt .fl label{color:var(--navy)}
+.lt .fl input,.lt .fl select,.lt .fl textarea{background:#fff;border:1px solid #cfd3dc;color:var(--ink)}
+.lt .fl input:focus,.lt .fl select:focus,.lt .fl textarea:focus{border-color:var(--gold)}
+.lt .sw i{background:rgba(15,44,73,.2)}
+.lt .tog{color:var(--ink)}
+
+/* More menu */
+.lt .menu-list a,.lt .menu-list .li{background:#fff;border-bottom:1px solid var(--line2);color:var(--ink)}
+.lt .menu-list a:hover{background:#fbf6ea}
+.lt .menu-list svg.i{stroke:#a8812f}
+.lt .menu-list .chev{border-color:#a9b0bf}
+.lt .grp{color:#a8812f}
+.lt .prof{color:#fff}
+.lt .prof b{color:#fff}
+.lt .social a{border-color:var(--line2);color:var(--navy);background:#fff}
+.lt .social a:hover{background:var(--navy);color:var(--gold)}
+.lt .credit{color:#7d8597}
+
+/* Search, sheet */
+.lt .res a{border-bottom:1px solid var(--line2)}
+.lt .res b{color:var(--navy)}
+.lt .res small{color:#a8812f}
+.sheet.lt{background:var(--ivory)}
+.sheet.lt .grab{background:rgba(15,44,73,.2)}
+.sheet.lt .x{border-color:var(--line2);color:var(--navy)}
+.sheet.lt .sh-h p{color:var(--muted)}
+.lt .player h3,.lt .player b{color:#fff}
+.lt .player p{color:#cfd7e6!important}
+
+/* Classic tab bar */
+.tabs{background:var(--navy);border-top:2px solid var(--gold)}
+.tabs a.live-t .lv{width:auto;height:auto;margin:0;background:none;border:0;box-shadow:none;display:block}
+.tabs a.live-t .lv svg{stroke:currentColor}
+.tabs a.live-t{color:#8d99b0}
+.tabs a.live-t.on{color:var(--gold)}
+.tabs a.live-t.on::before{display:block}
+.tabs a:hover{color:var(--gold)}
+.bar{background:var(--navy)}
 img.noimg{opacity:0}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -304,46 +453,65 @@ img.noimg{opacity:0}
     <main id="main">
 
       <!-- HOME -->
-      <section class="screen" data-r="home">
-        <div class="greet"><span class="eyebrow" id="hello">Welcome</span><h1>Transforming Lives <span>Through Christ</span></h1></div>
-        <div class="slides" id="slides">
-          <div class="slide" data-go="live"><img src="https://images.unsplash.com/photo-1665397858118-1a66a692407c?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Watch Live</span><h3>Join the Service</h3><p>Stay connected. Stay expectant.</p></div></div>
-          <div class="slide" data-sermon="1"><img src="https://images.unsplash.com/photo-1635178945103-fb817c1476fd?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Latest Sermon</span><h3>Divine Encounter</h3><p>Experience the presence of God and be transformed.</p></div></div>
-          <div class="slide" data-go="school"><img src="https://images.unsplash.com/photo-1577036056967-aec1101ab9de?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">School of Ministry</span><h3>Equip. Empower. Impact.</h3><p>Equipping leaders for impact and kingdom work.</p></div></div>
-          <div class="slide" data-go="give"><img src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Give</span><h3>Partner With the Mission</h3><p>Support the mission and help transform lives around the world.</p></div></div>
+      <section class="screen lt" data-r="home">
+        <div class="hero" id="hero">
+          <div class="hs on" style="background-image:url('https://images.unsplash.com/photo-1665397858118-1a66a692407c?auto=format&fit=crop&w=1000&q=70')"></div>
+          <div class="hs" style="background-image:url('https://images.unsplash.com/photo-1724885794747-f4fb4dd8d0f2?auto=format&fit=crop&w=1000&q=70')"></div>
+          <div class="hs" style="background-image:url('https://images.unsplash.com/photo-1635178945103-fb817c1476fd?auto=format&fit=crop&w=1000&q=70')"></div>
+          <div class="hc">
+            <span class="eyebrow">Apostle Fatoki Global Outreach Inc.</span>
+            <h1>Transforming Lives <em>Through Christ</em></h1>
+            <p>Global outreach. Apostolic leadership. Life transformation.</p>
+            <div class="ha"><a class="btn btn-gold" href="#/live"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch Live</a><a class="btn btn-ghost" href="#/give">Give</a><a class="btn btn-ghost" href="#/involved">Join Us</a></div>
+          </div>
+          <div class="hd" id="dots"></div>
         </div>
-        <div class="dots" id="dots"></div>
 
-        <div class="sec">
+        <div class="band">
           <div class="quick">
-            <a class="q" href="#/live"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13"/><path d="m10 9 5 2.5-5 2.5z"/></svg>Watch</a>
-            <a class="q" href="#/give"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg>Give</a>
+            <a class="q" href="#/sermons"><svg viewBox="0 0 24 24"><path d="M4 5h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/></svg>Sermons</a>
             <a class="q" href="#/prayer"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8h10"/></svg>Prayer</a>
             <a class="q" href="#/events"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Events</a>
             <a class="q" href="#/school"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 3 9 3 12 0v-5"/></svg>School</a>
             <a class="q" href="#/involved"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2.5 5 6"/></svg>Serve</a>
+            <a class="q" href="#/contact"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>Contact</a>
           </div>
         </div>
 
-        <div class="sec">
-          <div class="sec-h"><h2>Recent Sermons</h2><a href="#/sermons">See All</a></div>
-          <div class="hscroll" id="homeSermons"></div>
+        <div class="sec center">
+          <div class="tc"><span class="eyebrow">Welcome</span><h2>Apostle Fatoki Global Outreach</h2><i class="dv"></i></div>
+          <p class="lead">Apostle Fatoki Global Outreach is a global ministry committed to transforming lives through the power of Jesus Christ. We preach the Gospel, equip believers and impact nations through crusades, media, and training.</p>
+          <p class="sig">Apostle Samuel Fatoki</p><p class="role">Founder &amp; President</p>
+          <a href="#/about" class="btn btn-line">Learn More</a>
         </div>
 
-        <div class="sec">
-          <div class="sec-h"><h2>Upcoming Events</h2><a href="#/events">See All</a></div>
-          <div id="homeEvents"></div>
+        <div class="sec alt">
+          <div class="tc"><span class="eyebrow">Messages</span><h2>Recent Sermons</h2><i class="dv"></i></div>
+          <div class="hscroll" id="homeSermons"></div>
+          <div class="center" style="margin-top:1.2rem"><a href="#/sermons" class="btn btn-line">View All Sermons</a></div>
         </div>
 
         <div class="verse"><img data-sym alt=""><q>Go ye into all the world, and preach the gospel to every creature.</q><cite>MARK 16:15 (KJV)</cite></div>
 
         <div class="sec">
-          <div class="card"><span class="eyebrow">About Us</span><p>Apostle Fatoki Global Outreach is a global ministry committed to transforming lives through the power of Jesus Christ. We preach the Gospel, equip believers and impact nations through crusades, media, and training.</p><a href="#/about" class="btn btn-line btn-sm" style="margin-top:.9rem">Learn More</a></div>
+          <div class="tc"><span class="eyebrow">Crusades &amp; Conferences</span><h2>Upcoming Events</h2><i class="dv"></i></div>
+          <div id="homeEvents"></div>
+          <div class="center" style="margin-top:1rem"><a href="#/events" class="btn btn-line">View All Events</a></div>
+        </div>
+
+        <div class="promo" style="background-image:url('https://images.unsplash.com/photo-1577036056967-aec1101ab9de?auto=format&fit=crop&w=1000&q=70')">
+          <div class="pc"><span class="eyebrow">School of Ministry</span><h2>Equipping Leaders. Transforming Nations.</h2><i class="dv"></i><p>Equipping leaders for impact and kingdom work.</p><a href="#/school" class="btn btn-gold">Apply Today</a></div>
+        </div>
+
+        <div class="sec center">
+          <div class="tc"><span class="eyebrow">Give</span><h2>Partner With the Mission</h2><i class="dv"></i></div>
+          <p class="lead">Support the mission and help transform lives around the world.</p>
+          <a href="#/give" class="btn btn-gold">Give Now</a>
         </div>
       </section>
 
       <!-- SERMONS -->
-      <section class="screen" data-r="sermons">
+      <section class="screen lt" data-r="sermons">
         <div class="pad">
           <div class="searchbox"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="sSearch" placeholder="Search sermons" aria-label="Search sermons"></div>
           <div class="chips" id="sChips">
@@ -371,10 +539,10 @@ img.noimg{opacity:0}
       </section>
 
       <!-- GIVE -->
-      <section class="screen" data-r="give">
+      <section class="screen lt" data-r="give">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Partner With the Mission</span><h1>Give</h1><i class="dv"></i></div></div>
         <div class="pad">
-          <span class="eyebrow">Partner With the Mission</span>
-          <h2 style="font-size:1.2rem;margin-bottom:1rem">Your Gift</h2>
+          <h2 style="font-size:1.15rem;margin-bottom:1rem">Your Gift</h2>
           <div class="seg" id="freq"><button class="on" data-v="One-time">One-time</button><button data-v="Monthly">Monthly</button></div>
           <div class="amt" id="amtShow">$50</div>
           <div class="amts" id="amts"><button data-a="25">$25</button><button data-a="50" class="on">$50</button><button data-a="100">$100</button><button data-a="250">$250</button><button data-a="500">$500</button><button data-a="other">Other</button></div>
@@ -392,7 +560,7 @@ img.noimg{opacity:0}
       </section>
 
       <!-- MORE -->
-      <section class="screen" data-r="more">
+      <section class="screen lt" data-r="more">
         <div class="prof"><img data-sym alt=""><div><b>Apostle Fatoki Global Outreach Inc.</b><small>Transforming Lives Through Christ</small></div></div>
         <div class="grp">Ministry</div>
         <nav class="menu-list">
@@ -414,7 +582,7 @@ img.noimg{opacity:0}
       </section>
 
       <!-- SEARCH -->
-      <section class="screen" data-r="search">
+      <section class="screen lt" data-r="search">
         <div class="pad">
           <div class="searchbox"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="q" placeholder="Search pages, sermons, events" aria-label="Search" autocomplete="off"></div>
           <div class="res" id="res"></div>
@@ -422,12 +590,12 @@ img.noimg{opacity:0}
       </section>
 
       <!-- ABOUT -->
-      <section class="screen" data-r="about">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1635178945103-fb817c1476fd?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Who We Are</span><h1>About Us</h1></div></div>
+      <section class="screen lt" data-r="about">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1635178945103-fb817c1476fd?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Who We Are</span><h1>About Us</h1><i class="dv"></i></div></div>
         <div class="pad">
-          <p style="color:#d3dbea">Apostle Fatoki Global Outreach is a global ministry committed to transforming lives through the power of Jesus Christ. We preach the Gospel, equip believers and impact nations through crusades, media, and training.</p>
-          <p style="color:#d3dbea;margin-top:.8rem">Through the Apostle Fatoki School of Ministry, we train men and women to carry the message of Christ into their churches, communities and nations.</p>
-          <p style="margin-top:1rem;font-family:var(--serif);color:var(--gold)">Apostle Samuel Fatoki</p><p class="muted" style="font-size:.75rem;letter-spacing:.14em;text-transform:uppercase">Founder &amp; President</p>
+          <p style="color:var(--txt)">Apostle Fatoki Global Outreach is a global ministry committed to transforming lives through the power of Jesus Christ. We preach the Gospel, equip believers and impact nations through crusades, media, and training.</p>
+          <p style="color:var(--txt);margin-top:.8rem">Through the Apostle Fatoki School of Ministry, we train men and women to carry the message of Christ into their churches, communities and nations.</p>
+          <p class="sig" style="margin-top:1rem">Apostle Samuel Fatoki</p><p class="role">Founder &amp; President</p>
           <div class="card" style="margin-top:1.2rem"><h3>Our Mission</h3><p>To preach the Gospel of Jesus Christ, equip believers and impact nations through crusades, media, and training.</p></div>
           <div class="card"><h3>Our Vision</h3><p>Transformed lives and equipped leaders carrying the message of Christ to every nation.</p></div>
           <div class="sec-h" style="margin-top:1.2rem"><h2>Core Values</h2></div>
@@ -447,8 +615,8 @@ img.noimg{opacity:0}
       </section>
 
       <!-- EVENTS -->
-      <section class="screen" data-r="events">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1724885794747-f4fb4dd8d0f2?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Crusades &amp; Conferences</span><h1>Events</h1></div></div>
+      <section class="screen lt" data-r="events">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1724885794747-f4fb4dd8d0f2?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Crusades &amp; Conferences</span><h1>Events</h1><i class="dv"></i></div></div>
         <div class="pad">
           <div class="chips" id="eChips"><button class="chip on" data-t="all">All</button><button class="chip" data-t="crusade">Crusades</button><button class="chip" data-t="conference">Conferences</button></div>
           <div id="eList"></div>
@@ -457,10 +625,10 @@ img.noimg{opacity:0}
       </section>
 
       <!-- SCHOOL -->
-      <section class="screen" data-r="school">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Equipping Leaders. Transforming Nations.</span><h1>School of Ministry</h1></div></div>
+      <section class="screen lt" data-r="school">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Equipping Leaders. Transforming Nations.</span><h1>School of Ministry</h1><i class="dv"></i></div></div>
         <div class="pad">
-          <p style="color:#d3dbea">The Apostle Fatoki School of Ministry equips men and women with the Word of God, leadership skills and practical ministry training for impact in their churches, communities and nations.</p>
+          <p style="color:var(--txt)">The Apostle Fatoki School of Ministry equips men and women with the Word of God, leadership skills and practical ministry training for impact in their churches, communities and nations.</p>
           <button class="btn btn-gold btn-full" data-apply="" style="margin:1rem 0 1.4rem">Apply Today</button>
           <div class="sec-h"><h2>Programs</h2></div>
           <div id="progs"></div>
@@ -475,14 +643,14 @@ img.noimg{opacity:0}
       </section>
 
       <!-- INVOLVED -->
-      <section class="screen" data-r="involved">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1547360649-d24a4bdfb16e?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">There Is a Place for You</span><h1>Get Involved</h1></div></div>
+      <section class="screen lt" data-r="involved">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1547360649-d24a4bdfb16e?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">There Is a Place for You</span><h1>Get Involved</h1><i class="dv"></i></div></div>
         <div class="pad" id="teams"></div>
       </section>
 
       <!-- PRAYER -->
-      <section class="screen" data-r="prayer">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1570134504733-502924fac82d?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">We Will Stand With You</span><h1>Prayer Request</h1></div></div>
+      <section class="screen lt" data-r="prayer">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1570134504733-502924fac82d?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">We Will Stand With You</span><h1>Prayer Request</h1><i class="dv"></i></div></div>
         <div class="pad">
           <form class="f" id="prayerF" novalidate>
             <div class="tog"><span>Send anonymously</span><label class="sw"><input type="checkbox" id="pAnon"><i></i></label></div>
@@ -498,8 +666,8 @@ img.noimg{opacity:0}
       </section>
 
       <!-- CONTACT -->
-      <section class="screen" data-r="contact">
-        <div class="banner"><img src="https://images.unsplash.com/photo-1525010114074-c03c7289b8ce?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">We Would Love to Hear From You</span><h1>Contact Us</h1></div></div>
+      <section class="screen lt" data-r="contact">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1525010114074-c03c7289b8ce?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">We Would Love to Hear From You</span><h1>Contact Us</h1><i class="dv"></i></div></div>
         <div class="pad contact">
           <a class="li" href="tel:+14701234567"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span><span><small>Call</small>+1 (470) 123-4567</span></a>
           <a class="li" href="mailto:info@apostlefatoki.org"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg></span><span><small>Email</small>info@apostlefatoki.org</span></a>
@@ -530,7 +698,7 @@ img.noimg{opacity:0}
     </nav>
 
     <div class="scrim" id="scrim"></div>
-    <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div>
+    <div class="sheet lt" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
 </div>
@@ -597,13 +765,12 @@ img.noimg{opacity:0}
     if(e.target.closest('[data-share-live]')){share('Watch Live');return}
   });
 
-  /* Slides */
-  var sl=$('#slides'),n=$$('.slide',sl).length,dots=$('#dots');
-  for(var i=0;i<n;i++)dots.appendChild(document.createElement('i'));
-  function dot(){var k=Math.round(sl.scrollLeft/(sl.scrollWidth/n));$$('i',dots).forEach(function(d,j){d.classList.toggle('on',j===k)})}
-  sl.addEventListener('scroll',dot,{passive:true});dot();
-  setInterval(function(){if(!$('.screen[data-r="home"]').classList.contains('on')||sl.matches(':hover'))return;var w=sl.scrollWidth/n,k=Math.round(sl.scrollLeft/w);sl.scrollTo({left:((k+1)%n)*w,behavior:'smooth'})},5500);
-  var hr=new Date().getHours();$('#hello').textContent=hr<12?'Good Morning':hr<17?'Good Afternoon':'Good Evening';
+  /* Hero */
+  var hs=$$('.hs'),dots=$('#dots'),hc=0,ht;
+  hs.forEach(function(_,i){var b=document.createElement('button');b.setAttribute('aria-label','Slide '+(i+1));if(!i)b.className='on';b.onclick=function(){hgo(i);hrun()};dots.appendChild(b)});
+  function hgo(i){hs[hc].classList.remove('on');dots.children[hc].classList.remove('on');hc=i;hs[hc].classList.add('on');dots.children[hc].classList.add('on')}
+  function hrun(){clearInterval(ht);ht=setInterval(function(){if($('.screen[data-r="home"]').classList.contains('on'))hgo((hc+1)%hs.length)},6000)}
+  hrun();
 
   /* Sermons */
   var saved=store.get('afgo_saved',[]);
@@ -631,8 +798,8 @@ img.noimg{opacity:0}
 
   function openSermon(i){var x=SERMONS[i],name=x.t+' '+x.h;
     var media=x.yt?'<div style="position:relative;aspect-ratio:16/9"><iframe src="https://www.youtube-nocookie.com/embed/'+x.yt+'?autoplay=1" title="'+esc(name)+'" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>'
-      :'<div class="player"><img class="bg" src="'+x.img+'" alt=""><div class="in"><img src="'+LGD+'" alt=""><p style="font-size:.82rem;color:#cfd7e6">The sermon video will play here once the YouTube link is added.</p></div></div>';
-    openSheet(head(name,'Apostle Samuel Fatoki')+media+'<p style="margin:.9rem 0;color:#d3dbea">'+esc(x.d)+'</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-gold" id="sheetSave" data-i="'+i+'">'+(saved.indexOf(i)>-1?'Saved':'Save')+'</button><button class="btn btn-line" data-share="'+esc(name)+'">Share</button></div>');
+      :'<div class="player"><img class="bg" src="'+x.img+'" alt=""><div class="in"><img src="'+LGD+'" alt=""><p style="font-size:.82rem;color:var(--txt)">The sermon video will play here once the YouTube link is added.</p></div></div>';
+    openSheet(head(name,'Apostle Samuel Fatoki')+media+'<p style="margin:.9rem 0;color:var(--txt)">'+esc(x.d)+'</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-gold" id="sheetSave" data-i="'+i+'">'+(saved.indexOf(i)>-1?'Saved':'Save')+'</button><button class="btn btn-line" data-share="'+esc(name)+'">Share</button></div>');
     $('#sheetSave').onclick=function(){toggleSave(i)}}
 
   /* Events */
@@ -641,7 +808,7 @@ img.noimg{opacity:0}
   var ef='all';function renderE(){$('#eList').innerHTML=EVENTS.map(function(x,i){return (ef==='all'||x.type===ef)?evRow(x,i):''}).join('')}
   $$('#eChips .chip').forEach(function(b){b.onclick=function(){$$('#eChips .chip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');ef=b.dataset.t;renderE()}});renderE();
   function openEvent(i){var x=EVENTS[i];
-    openSheet(head(x.n,x.date+' | '+x.loc)+'<p style="color:#d3dbea;margin-bottom:1rem">'+x.x+'</p><button class="btn btn-line btn-full" data-ics="'+i+'" style="margin-bottom:1.2rem">Add to Calendar</button>'+
+    openSheet(head(x.n,x.date+' | '+x.loc)+'<p style="color:var(--txt);margin-bottom:1rem">'+x.x+'</p><button class="btn btn-line btn-full" data-ics="'+i+'" style="margin-bottom:1.2rem">Add to Calendar</button>'+
     '<form class="f" id="regF" novalidate><div class="fl"><label for="rN">Full name</label><input id="rN" required autocomplete="name"></div><div class="fl"><label for="rE">Email</label><input id="rE" type="email" required autocomplete="email"></div><div class="fl"><label for="rP">Phone</label><input id="rP" type="tel" autocomplete="tel"></div><div class="fl"><label for="rC">Number attending</label><select id="rC"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div><button class="btn btn-gold btn-full" type="submit">Register</button></form>');
     hook($('#regF'),'Thank you. Your registration for '+x.n+' has been received.',true)}
   function ics(x){var st=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
@@ -655,7 +822,7 @@ img.noimg{opacity:0}
     hook($('#appF'),'Thank you. Your application has been received. Our admissions team will contact you.',true)}
 
   /* Teams */
-  $('#teams').innerHTML='<p style="color:#d3dbea;margin-bottom:1rem">Tap a team to sign up. Our team will contact you.</p>'+TEAMS.map(function(t){return '<div class="team"><span class="ic"><svg viewBox="0 0 24 24">'+t[2]+'</svg></span><div><b>'+t[0].replace('&','&amp;')+'</b><p>'+t[1]+'</p></div><button class="btn btn-line btn-sm" data-join="'+t[0].replace('&','&amp;')+'">Join</button></div>'}).join('')+
+  $('#teams').innerHTML='<p style="color:var(--txt);margin-bottom:1rem">Tap a team to sign up. Our team will contact you.</p>'+TEAMS.map(function(t){return '<div class="team"><span class="ic"><svg viewBox="0 0 24 24">'+t[2]+'</svg></span><div><b>'+t[0].replace('&','&amp;')+'</b><p>'+t[1]+'</p></div><button class="btn btn-line btn-sm" data-join="'+t[0].replace('&','&amp;')+'">Join</button></div>'}).join('')+
     '<div class="team"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></span><div><b>Partner Monthly</b><p>Become a ministry partner with a monthly gift.</p></div><a class="btn btn-line btn-sm" href="#/give">Give</a></div>';
   function openJoin(t){openSheet(head('Join the '+t,'Tell us how to reach you.')+'<form class="f" id="joinF" novalidate><div class="fl"><label for="jN">Full name</label><input id="jN" required autocomplete="name"></div><div class="fl"><label for="jE">Email</label><input id="jE" type="email" required autocomplete="email"></div><div class="fl"><label for="jP">Phone</label><input id="jP" type="tel" autocomplete="tel"></div><div class="fl"><label for="jM">Message (optional)</label><textarea id="jM" style="min-height:80px"></textarea></div><button class="btn btn-gold btn-full" type="submit">Sign Up</button></form>');
     hook($('#joinF'),'Thank you for signing up to serve. Our team will contact you.',true)}
