@@ -619,6 +619,44 @@ img.noimg{opacity:0}
 .lvs .cal svg{width:18px;height:18px;fill:var(--gold)}
 .lvs .cal:hover{background:var(--gold)}.lvs .cal:hover svg{fill:var(--navy)}
 .lvq .q svg{fill:var(--gold);stroke:none}
+
+/* ===== v8 book covers ===== */
+.bkc{position:relative;aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;text-align:center;padding:12% 10% 9%;overflow:hidden;box-shadow:6px 8px 22px rgba(1,19,49,.35);transition:transform .4s,box-shadow .4s}
+.bkc::before{content:"";position:absolute;inset:5%;border:1px solid currentColor;opacity:.45;pointer-events:none}
+.bkc::after{content:"";position:absolute;left:0;top:0;bottom:0;width:7%;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.08),transparent)}
+.bkc .au{font-size:.62em;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.bkc b{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:1.35em;line-height:1.2;margin:auto 0}
+.bkc i{display:block;width:30%;height:2px;background:currentColor;margin:0 auto .9em;opacity:.8}
+.bkc .pb{font-size:.55em;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.bkc.v0{background:linear-gradient(160deg,#0F2C49,#011331);color:#E6B558}
+.bkc.v1{background:linear-gradient(160deg,#f0c873,#E6B558 60%,#c99a3e);color:#011331}
+.bkc.v2{background:linear-gradient(160deg,#FAF3E2,#efe3c4);color:#011331}
+.bkc.v3{background:linear-gradient(160deg,#173b61,#0F2C49);color:#FAF3E2}
+
+.bkf{text-align:center;padding:1.4rem 1rem 1.2rem}
+.bkf .bkc{width:170px;margin:0 auto 1.1rem;font-size:.82rem}
+.bkf h2{font-size:1.25rem;color:var(--navy);margin:.2rem 0 .3rem}
+.bkf .m{display:block;color:#a8812f;font-size:.74rem;font-weight:600;letter-spacing:.06em}
+.bkf p{font-size:.9rem;margin:.7rem 0}
+.bkf .pr{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--navy);margin-bottom:.8rem}
+.bkr{display:grid;grid-template-columns:70px 1fr;gap:.85rem;align-items:center;padding:.8rem;background:#fff;border:1px solid var(--line2);margin-bottom:.6rem;transition:.2s}
+.bkr:hover{border-color:var(--gold);transform:translateY(-2px)}
+.bkr .bkc{width:70px;font-size:.36rem;box-shadow:2px 3px 8px rgba(1,19,49,.3)}
+.bkr .bkc .au,.bkr .bkc .pb,.bkr .bkc i{display:none}
+.bkr .bkc b{font-size:1.4em;overflow-wrap:anywhere}
+.bkr h4{font-size:.92rem;color:var(--navy);line-height:1.3}
+.bkr small{display:block;color:var(--muted);font-size:.72rem;margin:.15rem 0 .45rem}
+.bkr .ft{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.bkr .ft b{font-family:var(--serif);color:var(--navy);font-size:1.05rem}
+.bkn{background:var(--navy);color:#fff;padding:1.1rem;border-top:3px solid var(--gold);margin-top:.6rem}
+.bkn h3{color:var(--gold);font-size:1rem;margin-bottom:.35rem}
+.bkn p{color:#cfd7e6!important;font-size:.86rem;margin-bottom:.8rem}
+.osum{display:flex;gap:.8rem;align-items:center;background:#fff;border:1px solid var(--line2);padding:.7rem;margin-bottom:1rem}
+.osum .bkc{width:48px;font-size:.3rem;flex:none}
+.osum .bkc .au,.osum .bkc .pb,.osum .bkc i{display:none}
+.osum .bkc b{font-size:1.4em;overflow-wrap:anywhere}
+.osum b.t{display:block;color:var(--navy);font-size:.9rem}
+.osum small{color:var(--muted);font-size:.78rem}
 </style>
 </head>
 <body>
@@ -756,6 +794,17 @@ img.noimg{opacity:0}
         </div>
       </section>
 
+      <!-- BOOKS -->
+      <section class="screen lt" data-r="books">
+        <div class="banner"><img src="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Books and Resources</span><h1>Books by Apostle Samuel Fatoki</h1><i class="dv"></i></div></div>
+        <div class="bkf" id="bkFeat"></div>
+        <div class="pad" style="padding-top:0">
+          <div class="sec-h"><h2>All Books</h2></div>
+          <div id="bkList"></div>
+          <div class="bkn"><h3>Orders for Churches and Bookstores</h3><p>Order copies in bulk for your church, Bible study group or bookstore.</p><a href="#/contact" class="btn btn-gold btn-sm">Contact Us</a></div>
+        </div>
+      </section>
+
       <!-- GIVE -->
       <section class="screen lt" data-r="give">
         <div class="banner"><img src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1000&q=70" alt=""><div class="c"><span class="eyebrow">Partner With the Mission</span><h1>Give</h1><i class="dv"></i></div></div>
@@ -785,6 +834,7 @@ img.noimg{opacity:0}
           <a href="#/about"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.5"/></svg><span>About Us</span><i class="chev"></i></a>
           <a href="#/events"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Events</span><i class="chev"></i></a>
           <a href="#/school"><svg class="i" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 3 9 3 12 0v-5"/></svg><span>School of Ministry</span><i class="chev"></i></a>
+          <a href="#/books"><svg class="i" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 2h13v-4"/></svg><span>Books</span><i class="chev"></i></a>
           <a href="#/gallery"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-8 8"/></svg><span>Gallery</span><i class="chev"></i></a>
           <a href="#" data-install><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span>Install the App</span><i class="chev"></i></a>
           <a href="#/involved"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2.5 5 6"/></svg><span>Get Involved</span><i class="chev"></i></a>
@@ -988,12 +1038,12 @@ img.noimg{opacity:0}
 
   /* Data */
   var SERMONS=[
-    {t:"Supernatural",h:"Help",s:"God is still your helper!",c:"faith",img:"https://images.unsplash.com/photo-1730875647697-eace28e2a77e?auto=format&fit=crop&w=1000&q=70",d:"Faith for the times you need God to step in.",yt:""},
-    {t:"Divine",h:"Encounter",s:"Experience the presence of God",c:"presence",img:"https://images.unsplash.com/photo-1635178945103-fb817c1476fd?auto=format&fit=crop&w=1000&q=70",d:"A call to meet God and be changed.",yt:""},
-    {t:"The Power of",h:"Transformation",s:"Behold, I make all things new!",c:"transformation",img:"https://images.unsplash.com/photo-1570134504733-502924fac82d?auto=format&fit=crop&w=1000&q=70",d:"How Christ makes all things new.",yt:""},
-    {t:"Equipped",h:"to Lead",s:"Equipping leaders",c:"leadership",img:"https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1000&q=70",d:"The Word as the foundation of every leader.",yt:""},
-    {t:"Fire for",h:"Nations",s:"Go into all the world",c:"faith",img:"https://images.unsplash.com/photo-1525010114074-c03c7289b8ce?auto=format&fit=crop&w=1000&q=70",d:"The call to carry the Gospel to every nation.",yt:""},
-    {t:"In His",h:"Presence",s:"Worship and the Word",c:"presence",img:"https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1000&q=70",d:"Living a life of worship before God.",yt:""}
+    {t:"Friday Night Bible Study /",h:"Miracle Service",s:"ELCC TV",c:"faith",yt:"2xtrNsE6VXw",img:"https://i.ytimg.com/vi/2xtrNsE6VXw/maxresdefault.jpg",d:"Friday night Bible study and miracle service."},
+    {t:"Supernatural Elevation:",h:"Ordination & Installation",s:"ELCC TV",c:"leadership",yt:"aN4bN9UsWWg",img:"https://i.ytimg.com/vi/aN4bN9UsWWg/maxresdefault.jpg",d:"Ordination and installation service."},
+    {t:"Sunday Morning",h:"Worship Service",s:"ELCC TV",c:"presence",yt:"pQmX8PA5EPQ",img:"https://i.ytimg.com/vi/pQmX8PA5EPQ/maxresdefault.jpg",d:"Sunday morning worship service."},
+    {t:"Friday Night Bible Study /",h:"Miracle Service",s:"ELCC TV",c:"faith",yt:"_HwcgD5Dfqk",img:"https://i.ytimg.com/vi/_HwcgD5Dfqk/maxresdefault.jpg",d:"Friday night Bible study and miracle service."},
+    {t:"Fire for",h:"Nations",s:"Go into all the world",c:"faith",img:"https://images.unsplash.com/photo-1525010114074-c03c7289b8ce?auto=format&fit=crop&w=1000&q=70",d:"The call to carry the Gospel to every nation."},
+    {t:"In His",h:"Presence",s:"Worship and the Word",c:"presence",img:"https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1000&q=70",d:"Living a life of worship before God."}
   ];
   var EVENTS=[
     {n:"Global Crusade",type:"crusade",d:"20-23",m:"JUN",y:"2027",date:"June 20-23, 2027",loc:"Lagos, Nigeria",a:"20270620",b:"20270624",x:"Four days of Gospel preaching, prayer and ministry."},
@@ -1005,7 +1055,7 @@ img.noimg{opacity:0}
 
   /* Router */
   var TABS=['home','sermons','live','give','more'];
-  var TITLES={about:'About Us',gallery:'Gallery',events:'Events',school:'School of Ministry',involved:'Get Involved',prayer:'Prayer Request',contact:'Contact Us',search:'Search'};
+  var TITLES={about:'About Us',gallery:'Gallery',events:'Events',school:'School of Ministry',books:'Books',involved:'Get Involved',prayer:'Prayer Request',contact:'Contact Us',search:'Search'};
   var prev='home',hist=[];
   function route(){
     var r=(location.hash.replace(/^#\/?/,'')||'home');if(!$('.screen[data-r="'+r+'"]'))r='home';
@@ -1118,7 +1168,7 @@ img.noimg{opacity:0}
         $('#lvCd').style.display=st.live?'none':'grid';}
       if(!st.live){var t=lvSplit(st.secs),b=$$('#lvCd b');b[0].textContent=t[0];for(var k=1;k<4;k++)b[k].textContent=(t[k]<10?'0':'')+t[k]}}
     $$('.lvs').forEach(function(c){var s=LIVE.services[+c.dataset.svc];c.querySelector('small').textContent=LV_DAYS[s.day]+' | '+lvClock(s.h,s.m)+' '+LIVE.tzLabel;c.querySelector('span:not(.ic)').textContent=s.x});
-    $('#lvRecent').innerHTML=lvRecent(3).map(function(o,k){var x=SERMONS[k];return '<div class="row" data-sermon="'+k+'">'+thumb(x)+'<div><h4>'+x.t+' '+x.h+'</h4><small>'+o.s.n+'<br>'+o.date+'</small></div><span></span></div>'}).join('');
+    $('#lvRecent').innerHTML=SERMONS.map(function(x,k){return x.yt?'<div class="row" data-sermon="'+k+'">'+thumb(x)+'<div><h4>'+x.t+' '+x.h+'</h4><small>'+x.s+'</small></div><span></span></div>':''}).join('');
     paint();setInterval(paint,1000);
   })();
   var sf='all';
@@ -1169,6 +1219,31 @@ img.noimg{opacity:0}
   /* Teams */
   $('#teams').innerHTML='<p style="color:var(--txt);margin-bottom:1rem">Tap a team to sign up. Our team will contact you.</p>'+TEAMS.map(function(t){return '<div class="team"><span class="ic"><svg viewBox="0 0 24 24">'+t[2]+'</svg></span><div><b>'+t[0].replace('&','&amp;')+'</b><p>'+t[1]+'</p></div><button class="btn btn-line btn-sm" data-join="'+t[0].replace('&','&amp;')+'">Join</button></div>'}).join('')+
     '<div class="team"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></span><div><b>Partner Monthly</b><p>Become a ministry partner with a monthly gift.</p></div><a class="btn btn-line btn-sm" href="#/give">Give</a></div>';
+  
+  var BOOKS=[
+    {t:"The Power to Overcome Depression",y:"2024",pub:"Christian Faith Publishing",p:"14.99",tag:"Latest Release",d:"A guide to the causes of depression and the way out of it, with emotional and community strategies grounded in faith."},
+    {t:"The Power for Living",y:"2021",pub:"Christian Faith Publishing",p:"14.99",tag:"",d:"A charge to every believer to be filled with God's power for daily life, with Scripture in every chapter."},
+    {t:"The Secret of Peace",y:"",pub:"Christian Faith Publishing",p:"11.99",tag:"",d:"Apostle Samuel Fatoki's teaching on the peace of God for the believer and the family."},
+    {t:"Be Strengthened With All Might",y:"2015",pub:"Creation House",p:"13.99",tag:"",d:"A charge to embrace Colossians 1:10-11 and live a strong, fruitful Christian life."}
+  ];
+  function bkCover(b,k){return '<div class="bkc v'+(k%4)+'"><span class="au">Apostle Samuel Fatoki</span><b>'+b.t+'</b><i></i><span class="pb">'+b.pub+'</span></div>'}
+  function bkMeta(b){return b.pub+(b.y?' | '+b.y:'')}
+  document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.src.indexOf('maxresdefault')>-1){t.classList.remove('noimg');t.src=t.src.replace('maxresdefault','hqdefault')}},true);
+
+  (function(){
+    var f=BOOKS[0];
+    $('#bkFeat').innerHTML=bkCover(f,0)+'<span class="eyebrow">Latest Release</span><h2>'+f.t+'</h2><span class="m">'+bkMeta(f)+'</span><p>'+f.d+'</p><span class="pr">$'+f.p+'</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-gold" data-order="0">Order Now</button><button class="btn btn-line" data-share-book="0">Share</button></div>';
+    $('#bkList').innerHTML=BOOKS.map(function(b,k){return '<div class="bkr">'+bkCover(b,k)+'<div><h4>'+b.t+'</h4><small>'+bkMeta(b)+'</small><div class="ft"><b>$'+b.p+'</b><button class="btn btn-line btn-sm" data-order="'+k+'">Order</button></div></div></div>'}).join('');
+    function openOrder(k){openSheet(head('Order a Book','Our team will contact you with payment and delivery.')+'<div class="osum" id="oSum"></div><form class="f" id="ordF" novalidate><div class="fl"><label for="oB">Book</label><select id="oB" required>'+BOOKS.map(function(b,i){return '<option value="'+i+'"'+(i==k?' selected':'')+'>'+b.t+' ($'+b.p+')</option>'}).join('')+'</select></div><div class="fl"><label for="oQ">Quantity</label><input id="oQ" type="number" min="1" value="1" required inputmode="numeric"></div><div class="fl"><label for="oN">Full name</label><input id="oN" required autocomplete="name"></div><div class="fl"><label for="oE">Email</label><input id="oE" type="email" required autocomplete="email"></div><div class="fl"><label for="oP">Phone</label><input id="oP" type="tel" required autocomplete="tel"></div><div class="fl"><label for="oA">Delivery address</label><textarea id="oA" required style="min-height:80px" autocomplete="street-address"></textarea></div><div class="fl"><label for="oC">Country</label><input id="oC" required autocomplete="country-name"></div><button class="btn btn-gold btn-full" type="submit">Place Order</button></form>');
+      function sum(){var i=+$('#oB').value,b=BOOKS[i],q=Math.max(1,+$('#oQ').value||1);$('#oSum').innerHTML=bkCover(b,i)+'<div><b class="t">'+b.t+'</b><small>'+q+' x $'+b.p+' = $'+(q*b.p).toFixed(2)+'</small></div>'}
+      sum();$('#oB').onchange=sum;$('#oQ').oninput=sum;
+      hook($('#ordF'),'Your order has been received. Our team will contact you with payment and delivery details.',true)}
+    document.addEventListener('click',function(e){
+      var o=e.target.closest('[data-order]');if(o){openOrder(+o.dataset.order);return}
+      var sb=e.target.closest('[data-share-book]');if(sb){var b=BOOKS[+sb.dataset.shareBook],url=location.href.split('#')[0]+'#/books',d={title:b.t+' by Apostle Samuel Fatoki',text:b.t+' by Apostle Samuel Fatoki',url:url};if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')})}
+    });
+  })();
+
   function openJoin(t){openSheet(head('Join the '+t,'Tell us how to reach you.')+'<form class="f" id="joinF" novalidate><div class="fl"><label for="jN">Full name</label><input id="jN" required autocomplete="name"></div><div class="fl"><label for="jE">Email</label><input id="jE" type="email" required autocomplete="email"></div><div class="fl"><label for="jP">Phone</label><input id="jP" type="tel" autocomplete="tel"></div><div class="fl"><label for="jM">Message (optional)</label><textarea id="jM" style="min-height:80px"></textarea></div><button class="btn btn-gold btn-full" type="submit">Sign Up</button></form>');
     hook($('#joinF'),'You have signed up to serve with the '+t+'. Our team will contact you.',true)}
 
