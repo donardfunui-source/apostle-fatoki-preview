@@ -529,6 +529,60 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
 .apop [hidden]{display:none!important}
 @media (min-width:1025px){.apop{left:auto;right:24px;bottom:24px}}
 .apop .ap-ol{margin:.9rem 0 0!important;padding:0!important}.apop .ap-ol li{padding:0;border:0;background:none}
+
+/* ===== v7 Live page ===== */
+.lv-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1.6rem;align-items:stretch}
+.lv-player{border:1px solid var(--line)}.lv-player .in{width:100%}
+.lv-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.lv-player .lv-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.2em;padding:.4rem .75rem;margin-bottom:1.1rem;background:rgba(230,181,88,.16);color:var(--gold);border:1px solid var(--line)}
+.lv-player .lv-tag.on{background:#c62f2f;color:#fff;border-color:#c62f2f}
+.lv-player .lv-acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.3rem}
+.lv-side{background:var(--navy-2,#0F2C49);border:1px solid var(--line);padding:2rem;display:flex;flex-direction:column;gap:.9rem;transition:border-color .3s,transform .3s}
+.lv-side:hover{border-color:var(--gold)}
+.lv-st{align-self:flex-start;display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.lv-st.on{color:#ff6b6b}
+.lv-side h3{color:#fff;font-size:1.5rem;line-height:1.25}
+.lv-side .lv-sp{color:var(--gold);font-weight:600;font-size:.95rem}
+.lv-side .lv-w{color:#d5dcea;font-size:.95rem}
+.lv-side .lv-x{color:#c9d2e3;font-size:.95rem;border-top:1px solid var(--line);padding-top:.9rem}
+.lv-side .lv-l{color:#9fb0cc;font-size:.85rem}
+.lv-cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:.4rem 0}
+.lv-cd div{background:rgba(1,19,49,.65);border:1px solid var(--line);text-align:center;padding:.8rem .2rem}
+.lv-cd b{display:block;font-family:var(--serif);font-size:1.7rem;color:#fff;line-height:1}
+.lv-cd small{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:.4rem}
+.lv-side .lv-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:auto}
+.lv-side .lv-btns .btn{width:100%;justify-content:center}
+.lv-plat{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+.lv-plat a{display:flex;align-items:center;gap:1rem;padding:1.3rem 1.4rem;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#fff;transition:transform .3s,border-color .3s,background .3s}
+.lv-plat a:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(230,181,88,.08)}
+.lv-plat i{flex:none;width:52px;height:52px;display:grid;place-items:center;background:var(--gold);transition:background .3s}
+.lv-plat a:hover i{background:#fff}
+.lv-plat i svg{width:24px;height:24px;fill:var(--navy)}
+.lv-plat b{display:block;font-family:var(--serif);font-size:1.05rem}
+.lv-plat small{display:block;color:#9fb0cc;font-size:.85rem;margin-top:.15rem}
+.lv-svc{position:relative;background:#fff;border:1px solid rgba(1,19,49,.08);padding:2.2rem 2rem;display:flex;flex-direction:column;gap:.6rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+.lv-svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+.lv-svc .ic{width:58px;height:58px;display:grid;place-items:center;background:var(--navy);margin-bottom:.6rem;transition:background .3s}
+.lv-svc:hover .ic{background:var(--gold)}
+.lv-svc .ic svg{width:26px;height:26px;fill:var(--gold);transition:fill .3s}
+.lv-svc:hover .ic svg{fill:var(--navy)}
+.lv-svc .day{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2,#b8893a)}
+.lv-svc h3{color:var(--navy);font-size:1.25rem}
+.lv-svc .tm{font-family:var(--serif);font-size:1.5rem;color:var(--navy)}
+.lv-svc p{color:var(--muted);font-size:.95rem}
+.lv-svc .btn{align-self:flex-start;margin-top:auto}
+.lv-svc .flag{position:absolute;top:0;right:0;background:var(--gold);color:var(--navy);font-size:.66rem;font-weight:700;letter-spacing:.18em;padding:.4rem .7rem;display:none}
+.lv-svc.next .flag{display:block}
+.lv-svc.live .flag{display:block;background:#c62f2f;color:#fff}
+.lv-take .mv{display:flex;flex-direction:column;gap:.2rem}
+.lv-take .mv .ic{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--gold);margin-bottom:1rem;transition:background .3s}
+.lv-take .mv:hover .ic{background:var(--gold)}
+.lv-take .mv .ic svg{width:24px;height:24px;fill:var(--gold);transition:fill .3s}
+.lv-take .mv:hover .ic svg{fill:var(--navy)}
+.lv-take .mv .btn{align-self:flex-start;margin-top:1.1rem}
+.lv-take .mv:hover{border-color:var(--gold);transform:translateY(-4px)}
+@media (max-width:980px){.lv-grid{grid-template-columns:1fr}.lv-plat{grid-template-columns:1fr}}
+@media (max-width:600px){.lv-side{padding:1.4rem}.lv-cd b{font-size:1.35rem}.lv-player .lv-acts .btn{padding:.6rem .9rem}.lv-player .in img{width:min(200px,60%);margin-bottom:.6rem}.lv-player .in h2{font-size:1.25rem}.lv-player .lv-tag{margin-bottom:.6rem}.lv-player .lv-acts{margin-top:.7rem}}
 </style>
 </head>
 <body>
@@ -975,21 +1029,49 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
 
 <!-- ================= LIVE ================= -->
 <div class="page" id="page-live">
-  <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><span class="eyebrow">Stay Connected. Stay Expectant.</span><h1>Watch Live</h1><div class="crumbs"><a href="#home">Home</a> / Watch Live</div></div></div>
+  <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><span class="eyebrow">Stay Connected. Stay Expectant.</span><h1>Watch Live</h1><p class="ban-sub">Join every service live with Apostle Samuel Fatoki, wherever you are in the world.</p><div class="crumbs"><a href="#home">Home</a> / Watch Live</div></div></div>
   <section class="dark on-dark">
     <div class="wrap">
-      <div class="player reveal" style="background-image:url('https://images.unsplash.com/photo-1665397858118-1a66a692407c?auto=format&fit=crop&w=1600&q=70')">
-        <div class="in">
-          <span class="badge-live"><span class="live-dot"></span>LIVE BROADCAST</span>
-          <img data-lgd src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Apostle Fatoki Global Outreach Inc.">
-          <h2>Service Begins Shortly</h2>
-          <p style="color:#d5dcea;margin-top:.6rem">Stay connected. Stay expectant.</p>
-        </div>
+      <div class="lv-grid">
+        <div class="player lv-player reveal" id="lvPlayer" style="background-image:url('https://images.unsplash.com/photo-1665397858118-1a66a692407c?auto=format&fit=crop&w=1600&q=70')"><div class="in" id="lvIn"></div></div>
+        <aside class="lv-side reveal">
+          <span class="lv-st" id="lvSt"></span>
+          <h3 id="lvName"></h3>
+          <span class="lv-sp">Apostle Samuel Fatoki</span>
+          <span class="lv-w" id="lvWhen"></span>
+          <span class="lv-l" id="lvLocal"></span>
+          <p class="lv-x" id="lvX"></p>
+          <div class="lv-cd" id="lvCd"><div><b>0</b><small>Days</small></div><div><b>00</b><small>Hours</small></div><div><b>00</b><small>Mins</small></div><div><b>00</b><small>Secs</small></div></div>
+          <div class="lv-btns"><button class="btn btn-gold" id="lvRemind">Remind Me</button><button class="btn btn-outline" data-share-live>Share</button></div>
+        </aside>
       </div>
-      <div class="grid g3" style="margin-top:2.4rem">
-        <div class="mv reveal"><h3>Watch on YouTube</h3><p>Subscribe to the channel to get notified when we go live.</p></div>
-        <div class="mv reveal"><h3>Join on Facebook</h3><p>Follow the ministry page for live services and updates.</p></div>
-        <div class="mv reveal"><h3>Give While You Watch</h3><p>Partner with the mission of transforming lives globally.</p><a href="#give" class="btn btn-gold btn-sm" style="margin-top:1rem">Give Now</a></div>
+      <div class="lv-plat">
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="reveal" id="lvYt"><i><svg viewBox="0 0 24 24"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.5 31 31 0 0 0-.4-4.5zM9.7 15.1V8.9l5.7 3.1z"/></svg></i><span><b>Watch on YouTube</b><small>Subscribe to get notified when we go live.</small></span></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="reveal" id="lvFb"><i><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></i><span><b>Watch on Facebook</b><small>Follow the ministry page for every live service.</small></span></a>
+        <a href="#" data-install class="reveal"><i><svg viewBox="0 0 24 24"><path d="M7 1h10a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 3v15h10V4zm5 16.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></i><span><b>Watch in the App</b><small>Live services, sermons and prayer on your phone.</small></span></a>
+      </div>
+    </div>
+  </section>
+  <section class="cream">
+    <div class="wrap">
+      <div class="center reveal"><span class="eyebrow">Weekly Services</span><h2 class="title">Join Us Live Every Week</h2><div class="divider"></div><p class="lead" id="lvTz">All times are Eastern Time (Atlanta).</p></div>
+      <div class="grid g3" style="margin-top:2.2rem"><div class="lv-svc reveal" data-svc="0"><span class="flag">NEXT</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M11 2h2v4h4v2h-4v14h-2V8H7V6h4z"/></svg></span><span class="day"></span><h3></h3><span class="tm"></span><p></p><button class="btn btn-line btn-sm" data-remind="0">Add to Calendar</button></div><div class="lv-svc reveal" data-svc="1"><span class="flag">NEXT</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5a1 1 0 0 0 0 2H20v2H6.5A2.5 2.5 0 0 1 4 20.5zM8 6v2h8V6z"/></svg></span><span class="day"></span><h3></h3><span class="tm"></span><p></p><button class="btn btn-line btn-sm" data-remind="1">Add to Calendar</button></div><div class="lv-svc reveal" data-svc="2"><span class="flag">NEXT</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2s6 5.4 6 11a6 6 0 0 1-12 0c0-3 1.6-5.2 3-6.6 0 2.4 1.2 3.6 2.4 3.6C11.4 7 12 4.6 12 2z"/></svg></span><span class="day"></span><h3></h3><span class="tm"></span><p></p><button class="btn btn-line btn-sm" data-remind="2">Add to Calendar</button></div></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="center reveal"><span class="eyebrow">Missed a Service?</span><h2 class="title">Recent Broadcasts</h2><div class="divider"></div></div>
+      <div class="grid g3" id="lvRecent" style="margin-top:2.2rem"></div>
+      <div class="center" style="margin-top:2.4rem"><a href="#sermons" class="btn btn-navy">All Sermons</a></div>
+    </div>
+  </section>
+  <section class="dark on-dark lv-take">
+    <div class="wrap">
+      <div class="center reveal"><span class="eyebrow">While You Watch</span><h2 class="title">Take Part in the Service</h2><div class="divider"></div></div>
+      <div class="grid g3" style="margin-top:2.2rem">
+        <div class="mv reveal"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v14H8l-5 4zm8 3v3H8v2h3v4h2v-4h3V9h-3V6z"/></svg></span><h3>Send a Prayer Request</h3><p>Our prayer team prays over every request during the service.</p><a href="#prayer" class="btn btn-gold btn-sm">Pray With Us</a></div>
+        <div class="mv reveal"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.1 1.8-1.9 3.3-3.1 5.4-3.1 3.6 0 5.7 3.8 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg></span><h3>Give While You Watch</h3><p>Partner with the mission of transforming lives globally.</p><a href="#give" class="btn btn-gold btn-sm">Give Now</a></div>
+        <div class="mv reveal"><span class="ic"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg></span><h3>Share the Stream</h3><p>Invite family and friends to watch the service with you.</p><button class="btn btn-gold btn-sm" data-share-live>Share Link</button></div>
       </div>
     </div>
   </section>
@@ -1136,6 +1218,73 @@ var LOGO="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAADcCAYAAAABZi8PAADn
   function card(x){return '<article class="card" data-cat="'+x.c+'" data-q="'+(x.t+' '+x.h+' '+x.s+' '+x.d).toLowerCase()+'"><a class="media" data-video="'+x.t+' '+x.h+'" style="cursor:pointer"><img src="'+x.img+'" alt="" loading="lazy"><span class="thumb-title"><b>'+x.t+' <span>'+x.h+'</span></b><small>'+x.s+'</small></span><span class="play"><i></i></span></a><div class="body"><span class="meta">Apostle Samuel Fatoki</span><h3>'+x.t+' '+x.h+'</h3><p>'+x.d+'</p><div class="acts"><button class="btn btn-line btn-sm" data-video="'+x.t+' '+x.h+'">Watch Now</button><button class="btn btn-line btn-sm" data-share="'+x.t+' '+x.h+'">Share</button></div></div></article>'}
   $('#sermonGrid').innerHTML=SERMONS.map(card).join('');
   $('#homeSermons').innerHTML=SERMONS.slice(0,3).map(card).join('');
+  /* ===== Live service settings (in WordPress these come from one settings screen) ===== */
+  var LIVE={
+    channel:'',                       /* YouTube channel ID: when set, the live stream plays on the page */
+    youtube:'https://www.youtube.com/',
+    facebook:'https://www.facebook.com/',
+    tz:'America/New_York',tzLabel:'ET',
+    speaker:'Apostle Samuel Fatoki',
+    services:[
+      {n:'Sunday Worship Service',day:0,h:10,m:0,len:150,x:'Praise, worship and the Word with Apostle Samuel Fatoki.'},
+      {n:'Midweek Bible Study',day:3,h:19,m:0,len:90,x:'Teaching from Scripture for every believer.'},
+      {n:'Friday Prayer Night',day:5,h:21,m:0,len:120,x:'An evening of prayer for families, nations and every need.'}
+    ]
+  };
+  var LV_DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function lvParts(d){var o={};new Intl.DateTimeFormat('en-US',{timeZone:LIVE.tz,weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d).forEach(function(p){o[p.type]=p.value});
+    o.wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);o.H=+o.hour%24;o.M=+o.minute;o.S=+o.second;return o}
+  function lvClock(h,m){return ((h%12)||12)+':'+(m<10?'0':'')+m+(h<12?' AM':' PM')}
+  function lvState(){var now=new Date(),p=lvParts(now),W=p.wd*1440+p.H*60+p.M,best=null;
+    for(var i=0;i<LIVE.services.length;i++){var s=LIVE.services[i],S=s.day*1440+s.h*60+s.m,since=(W-S+10080)%10080;
+      if(since<s.len)return {live:true,s:s,i:i,left:(s.len-since)*60-p.S};
+      var diff=(S-W+10080)%10080,secs=diff*60-p.S;if(!best||secs<best.secs)best={s:s,i:i,secs:secs}}
+    best.live=false;best.at=new Date(now.getTime()+best.secs*1000);return best}
+  function lvLocal(d){try{return d.toLocaleString(undefined,{weekday:'long',hour:'numeric',minute:'2-digit'})}catch(e){return ''}}
+  function lvWhen(s){return LV_DAYS[s.day]+', '+lvClock(s.h,s.m)+' '+LIVE.tzLabel}
+  function lvSplit(t){t=Math.max(0,t);return [Math.floor(t/86400),Math.floor(t%86400/3600),Math.floor(t%3600/60),t%60]}
+  function lvRecent(n){var now=Date.now(),p=lvParts(new Date()),W=p.wd*1440+p.H*60+p.M,list=[];
+    LIVE.services.forEach(function(s){var S=s.day*1440+s.h*60+s.m,ago=(W-S+10080)%10080;[ago,ago+10080].forEach(function(a){if(a>=s.len)list.push({s:s,ago:a})})});
+    list.sort(function(a,b){return a.ago-b.ago});
+    return list.slice(0,n).map(function(o){var d=new Date(now-o.ago*60000);o.date=d.toLocaleDateString('en-US',{timeZone:LIVE.tz,weekday:'short',month:'short',day:'numeric',year:'numeric'});return o})}
+  function lvIcs(s){var now=Date.now();
+    var S=s.day*1440+s.h*60+s.m,p=lvParts(new Date()),W=p.wd*1440+p.H*60+p.M,diff=(S-W+10080)%10080;
+    var q=lvParts(new Date(now+diff*60000)),pad=function(v){return (v<10?'0':'')+v};
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+    var d=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Apostle Fatoki Global Outreach//Live//EN','BEGIN:VEVENT','UID:'+s.n.replace(/\W/g,'')+'@apostlefatoki.org','DTSTAMP:'+stamp,
+      'DTSTART;TZID='+LIVE.tz+':'+q.year+q.month+q.day+'T'+pad(s.h)+pad(s.m)+'00','DURATION:PT'+s.len+'M','RRULE:FREQ=WEEKLY','SUMMARY:'+s.n+' (Live)',
+      'DESCRIPTION:Watch live with Apostle Fatoki Global Outreach Inc.','BEGIN:VALARM','TRIGGER:-PT15M','ACTION:DISPLAY','DESCRIPTION:'+s.n+' starts in 15 minutes','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var l=document.createElement('a');l.href=URL.createObjectURL(new Blob([d],{type:'text/calendar'}));l.download=s.n.replace(/\s+/g,'-')+'.ics';document.body.appendChild(l);l.click();l.remove();
+    toast(s.n+' added to your calendar downloads')}
+  function lvEmbed(){return '<iframe src="https://www.youtube.com/embed/live_stream?channel='+LIVE.channel+'" title="Live service" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'}
+  function lvShare(){var url=location.href.split('#')[0]+(window.APP_PAGE?'#/live':'#live'),d={title:'Watch Live | Apostle Fatoki Global Outreach',text:'Join the live service with Apostle Samuel Fatoki',url:url};
+    if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')},function(){toast(url)});else toast(url)}
+
+  (function(){
+    $('#lvYt').href=LIVE.youtube;$('#lvFb').href=LIVE.facebook;
+    var last=null;
+    function paint(){var st=lvState(),key=(st.live?'L':'N')+st.i;
+      if(key!==last){last=key;var s=st.s;
+        $('#lvName').textContent=s.n;$('#lvX').textContent=s.x;$('#lvWhen').textContent=lvWhen(s);
+        $('#lvSt').className='lv-st'+(st.live?' on':'');$('#lvSt').innerHTML=st.live?'<span class="live-dot"></span>Live Now':'Next Service';
+        $('#lvLocal').textContent=st.live?'Streaming now':'Your time: '+lvLocal(st.at);
+        $('#lvRemind').dataset.remind=st.i;$('#lvRemind').textContent=st.live?'Add to Calendar':'Remind Me';
+        var ifr=$('#lvPlayer iframe');if(ifr)ifr.remove();
+        if(st.live&&LIVE.channel){$('#lvPlayer').insertAdjacentHTML('beforeend',lvEmbed());$('#lvIn').innerHTML=''}
+        else $('#lvIn').innerHTML=st.live
+          ?'<span class="lv-tag on"><span class="live-dot"></span>LIVE NOW</span><img src="'+LGD+'" alt="Apostle Fatoki Global Outreach Inc."><h2>'+s.n+'</h2><div class="lv-acts"><a class="btn btn-gold" href="'+LIVE.youtube+'" target="_blank" rel="noopener">Watch on YouTube</a><a class="btn btn-outline" href="'+LIVE.facebook+'" target="_blank" rel="noopener">Watch on Facebook</a></div>'
+          :'<span class="lv-tag">NEXT SERVICE</span><img src="'+LGD+'" alt="Apostle Fatoki Global Outreach Inc."><h2>'+s.n+'</h2><p style="color:#d5dcea;margin-top:.6rem">'+lvWhen(s)+'</p>';
+        $$('.lv-svc').forEach(function(c){var k=+c.dataset.svc;c.classList.toggle('next',!st.live&&k===st.i);c.classList.toggle('live',st.live&&k===st.i);c.querySelector('.flag').textContent=st.live&&k===st.i?'LIVE NOW':'NEXT'});
+        $('#lvCd').style.display=st.live?'none':'grid';
+      }
+      if(!st.live){var t=lvSplit(st.secs),b=$$('#lvCd b');b[0].textContent=t[0];for(var k=1;k<4;k++)b[k].textContent=(t[k]<10?'0':'')+t[k]}}
+    $$('.lv-svc').forEach(function(c){var s=LIVE.services[+c.dataset.svc];c.querySelector('.day').textContent=LV_DAYS[s.day];c.querySelector('h3').textContent=s.n;c.querySelector('.tm').textContent=lvClock(s.h,s.m)+' '+LIVE.tzLabel;c.querySelector('p').textContent=s.x});
+    $('#lvRecent').innerHTML=lvRecent(3).map(function(o,k){var x=SERMONS[k],nm=x.t+' '+x.h;
+      return '<article class="card reveal"><a class="media" data-video="'+nm+'" style="cursor:pointer"><img src="'+x.img+'" alt="" loading="lazy"><span class="thumb-title"><b>'+x.t+' <span>'+x.h+'</span></b><small>Replay</small></span><span class="play"><i></i></span></a><div class="body"><span class="meta">'+o.s.n+' | '+o.date+'</span><h3>'+nm+'</h3><p>'+x.d+'</p><div class="acts"><button class="btn btn-line btn-sm" data-video="'+nm+'">Watch Replay</button><button class="btn btn-line btn-sm" data-share="'+nm+'">Share</button></div></div></article>'}).join('');
+    document.addEventListener('click',function(e){var r=e.target.closest('[data-remind]');if(r){lvIcs(LIVE.services[+r.dataset.remind]);return}if(e.target.closest('[data-share-live]'))lvShare()});
+    paint();setInterval(paint,1000);
+  })();
+
 
   /* Social icons are injected server side */
 

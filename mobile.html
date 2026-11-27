@@ -579,6 +579,46 @@ img.noimg{opacity:0}
 .apop [hidden]{display:none!important}
 @media (min-width:1025px){.apop{left:auto;right:24px;bottom:24px}}
 .apop .ap-ol{margin:.9rem 0 0!important;padding:0!important}.apop .ap-ol li{padding:0;border:0;background:none}
+
+/* ===== v7 Live screen ===== */
+#lvPlayer{border-bottom:1px solid var(--line)}
+#lvPlayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.player .tg{display:inline-flex;align-items:center;gap:.4rem;font-size:.6rem;font-weight:700;letter-spacing:.16em;padding:.3rem .55rem;margin-bottom:.55rem;background:rgba(230,181,88,.18);color:var(--gold);border:1px solid var(--line)}
+.player .tg.on{background:#c62f2f;color:#fff;border-color:#c62f2f}
+.player .in b.nm{font-family:var(--serif);font-size:1.1rem}
+.player .in .ac{display:flex;gap:.45rem;margin-top:.7rem}
+.lvc{background:var(--navy2);border:1px solid var(--line);padding:1.1rem;margin-bottom:1.3rem}
+.lvc .st{display:inline-flex;align-items:center;gap:.4rem;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.lvc .st.on{color:#ff6b6b}
+.lvc h2{font-size:1.15rem;margin:.4rem 0 .2rem}
+.lvc .sp{color:var(--gold);font-size:.82rem;font-weight:600}
+.lvc .w{display:block;font-size:.86rem;margin-top:.45rem}
+.lvc .l{display:block;color:var(--muted);font-size:.76rem;margin-top:.15rem}
+.lvc .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:.85rem 0}
+.lvc .cd div{background:var(--navy);border:1px solid var(--line);text-align:center;padding:.6rem .1rem}
+.lvc .cd b{display:block;font-family:var(--serif);font-size:1.3rem;line-height:1}
+.lvc .cd small{display:block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:.3rem}
+.lvc .bt{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.85rem}
+.lvp{display:flex;align-items:center;gap:.8rem;padding:.8rem;background:var(--navy2);border:1px solid var(--line);margin-bottom:.55rem;transition:.2s}
+.lvp:active,.lvp:hover{border-color:var(--gold);transform:translateY(-2px)}
+.lvp i{flex:none;width:42px;height:42px;display:grid;place-items:center;background:var(--gold)}
+.lvp i svg{width:20px;height:20px;fill:var(--navy)}
+.lvp b{display:block;font-size:.9rem}
+.lvp small{display:block;color:var(--muted);font-size:.74rem;margin-top:.1rem}
+.lvs{display:grid;grid-template-columns:44px 1fr auto;gap:.75rem;align-items:center;padding:.8rem;background:var(--navy2);border:1px solid var(--line);margin-bottom:.55rem;transition:.2s}
+.lvs:hover{border-color:var(--gold)}
+.lvs.nx,.lvs.lv{border-color:var(--gold)}
+.lvs .ic{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--gold)}
+.lvs .ic svg{width:20px;height:20px;fill:var(--gold)}
+.lvs small{display:block;color:var(--gold);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.lvs b{display:block;font-size:.9rem;margin:.1rem 0}
+.lvs span{display:block;color:var(--muted);font-size:.76rem}
+.lvs em{font-style:normal;margin-left:.35rem;background:var(--gold);color:var(--navy);padding:.05rem .35rem;font-size:.55rem;letter-spacing:.12em}
+.lvs.lv em{background:#c62f2f;color:#fff}
+.lvs .cal{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);background:transparent;cursor:pointer}
+.lvs .cal svg{width:18px;height:18px;fill:var(--gold)}
+.lvs .cal:hover{background:var(--gold)}.lvs .cal:hover svg{fill:var(--navy)}
+.lvq .q svg{fill:var(--gold);stroke:none}
 </style>
 </head>
 <body>
@@ -689,17 +729,30 @@ img.noimg{opacity:0}
 
       <!-- LIVE -->
       <section class="screen" data-r="live">
-        <div class="player"><img class="bg" src="https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1000&q=70" alt=""><div class="in"><span class="badge"><span class="dot"></span>LIVE BROADCAST</span><img data-lgd alt="Apostle Fatoki Global Outreach Inc."><b style="font-family:var(--serif);font-size:1.15rem">Service Begins Shortly</b></div></div>
+        <div class="player" id="lvPlayer"><img class="bg" src="https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?auto=format&fit=crop&w=1000&q=70" alt=""><div class="in" id="lvIn"></div></div>
         <div class="pad">
-          <span class="eyebrow">Stay Connected. Stay Expectant.</span>
-          <h2 style="font-size:1.2rem;margin-bottom:.9rem">Watch Live</h2>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:1rem">
-            <button class="btn btn-gold" data-share-live>Share</button>
-            <a class="btn btn-line" href="#/give">Give</a>
+          <div class="lvc">
+            <span class="st" id="lvSt"></span>
+            <h2 id="lvName"></h2>
+            <span class="sp">Apostle Samuel Fatoki</span>
+            <span class="w" id="lvWhen"></span><span class="l" id="lvLocal"></span>
+            <div class="cd" id="lvCd"><div><b>0</b><small>Days</small></div><div><b>00</b><small>Hours</small></div><div><b>00</b><small>Mins</small></div><div><b>00</b><small>Secs</small></div></div>
+            <div class="bt"><button class="btn btn-gold" id="lvRemind">Remind Me</button><button class="btn btn-line" data-share-live>Share</button></div>
           </div>
-          <div class="card"><h3>Watch on YouTube</h3><p>Subscribe to the channel to get notified when we go live.</p></div>
-          <div class="card"><h3>Join on Facebook</h3><p>Follow the ministry page for live services and updates.</p></div>
-          <div class="card"><h3>Send a Prayer Request</h3><p>Our prayer team will pray over every request we receive.</p><a class="btn btn-line btn-sm" href="#/prayer" style="margin-top:.8rem">Pray With Us</a></div>
+          <div class="sec-h"><h2>Watch Anywhere</h2></div>
+          <a class="lvp" id="lvYt" href="https://www.youtube.com/" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.5 31 31 0 0 0-.4-4.5zM9.7 15.1V8.9l5.7 3.1z"/></svg></i><span><b>Watch on YouTube</b><small>Subscribe to get notified when we go live.</small></span></a>
+          <a class="lvp" id="lvFb" href="https://www.facebook.com/" target="_blank" rel="noopener" style="margin-bottom:1.3rem"><i><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></i><span><b>Watch on Facebook</b><small>Follow the ministry page for every live service.</small></span></a>
+          <div class="sec-h"><h2>Weekly Services</h2></div>
+          <div class="lvs" data-svc="0"><span class="ic"><svg viewBox="0 0 24 24"><path d="M11 2h2v4h4v2h-4v14h-2V8H7V6h4z"/></svg></span><div><small></small><b></b><span></span></div><button class="cal" data-remind="0" aria-label="Add to calendar"><svg viewBox="0 0 24 24"><path d="M7 2v2H4v18h16V4h-3V2h-2v2H9V2zm-1 8h12v10H6zm5 2v2H9v2h2v2h2v-2h2v-2h-2v-2z"/></svg></button></div><div class="lvs" data-svc="1"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5a1 1 0 0 0 0 2H20v2H6.5A2.5 2.5 0 0 1 4 20.5zM8 6v2h8V6z"/></svg></span><div><small></small><b></b><span></span></div><button class="cal" data-remind="1" aria-label="Add to calendar"><svg viewBox="0 0 24 24"><path d="M7 2v2H4v18h16V4h-3V2h-2v2H9V2zm-1 8h12v10H6zm5 2v2H9v2h2v2h2v-2h2v-2h-2v-2z"/></svg></button></div><div class="lvs" data-svc="2"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2s6 5.4 6 11a6 6 0 0 1-12 0c0-3 1.6-5.2 3-6.6 0 2.4 1.2 3.6 2.4 3.6C11.4 7 12 4.6 12 2z"/></svg></span><div><small></small><b></b><span></span></div><button class="cal" data-remind="2" aria-label="Add to calendar"><svg viewBox="0 0 24 24"><path d="M7 2v2H4v18h16V4h-3V2h-2v2H9V2zm-1 8h12v10H6zm5 2v2H9v2h2v2h2v-2h2v-2h-2v-2z"/></svg></button></div>
+          <p style="color:var(--muted);font-size:.74rem;margin:.2rem 0 1.3rem">All times are Eastern Time (Atlanta). Tap the calendar to get a weekly reminder.</p>
+          <div class="sec-h"><h2>Recent Broadcasts</h2><a href="#/sermons">All Sermons</a></div>
+          <div id="lvRecent" style="margin-bottom:1.3rem"></div>
+          <div class="sec-h"><h2>While You Watch</h2></div>
+          <div class="quick lvq">
+            <a class="q" href="#/prayer"><svg viewBox="0 0 24 24"><path d="M3 3h18v14H8l-5 4zm8 3v3H8v2h3v4h2v-4h3V9h-3V6z"/></svg>Prayer</a>
+            <a class="q" href="#/give"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.1 1.8-1.9 3.3-3.1 5.4-3.1 3.6 0 5.7 3.8 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg>Give</a>
+            <button class="q" data-share-live style="color:inherit;font-family:inherit;cursor:pointer"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg>Share</button>
+          </div>
         </div>
       </section>
 
@@ -979,7 +1032,8 @@ img.noimg{opacity:0}
     var c=e.target.closest('[data-copy]');if(c){var t=c.dataset.copy;if(navigator.clipboard)navigator.clipboard.writeText(t).catch(function(){});toast(t+' copied');return}
     var ic=e.target.closest('[data-ics]');if(ic){ics(EVENTS[+ic.dataset.ics]);return}
     var sh=e.target.closest('[data-share]');if(sh){share(sh.dataset.share);return}
-    if(e.target.closest('[data-share-live]')){share('Watch Live');return}
+    if(e.target.closest('[data-share-live]')){lvShare();return}
+    var rm=e.target.closest('[data-remind]');if(rm){lvIcs(LIVE.services[+rm.dataset.remind]);return}
   });
 
   /* Hero */
@@ -1004,6 +1058,69 @@ img.noimg{opacity:0}
   var saved=store.get('afgo_saved',[]);
   function thumb(x){return '<div class="thumb"><img src="'+x.img+'" alt="" loading="lazy"><div class="tt"><b>'+x.t+' <span>'+x.h+'</span></b></div><span class="pl"></span></div>'}
   $('#homeSermons').innerHTML=SERMONS.slice(0,4).map(function(x,i){return '<div class="sc" data-sermon="'+i+'">'+thumb(x)+'<h4>'+x.t+' '+x.h+'</h4><small>Apostle Samuel Fatoki</small></div>'}).join('');
+
+  /* ===== Live service settings (in WordPress these come from one settings screen) ===== */
+  var LIVE={
+    channel:'',                       /* YouTube channel ID: when set, the live stream plays on the page */
+    youtube:'https://www.youtube.com/',
+    facebook:'https://www.facebook.com/',
+    tz:'America/New_York',tzLabel:'ET',
+    speaker:'Apostle Samuel Fatoki',
+    services:[
+      {n:'Sunday Worship Service',day:0,h:10,m:0,len:150,x:'Praise, worship and the Word with Apostle Samuel Fatoki.'},
+      {n:'Midweek Bible Study',day:3,h:19,m:0,len:90,x:'Teaching from Scripture for every believer.'},
+      {n:'Friday Prayer Night',day:5,h:21,m:0,len:120,x:'An evening of prayer for families, nations and every need.'}
+    ]
+  };
+  var LV_DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function lvParts(d){var o={};new Intl.DateTimeFormat('en-US',{timeZone:LIVE.tz,weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d).forEach(function(p){o[p.type]=p.value});
+    o.wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);o.H=+o.hour%24;o.M=+o.minute;o.S=+o.second;return o}
+  function lvClock(h,m){return ((h%12)||12)+':'+(m<10?'0':'')+m+(h<12?' AM':' PM')}
+  function lvState(){var now=new Date(),p=lvParts(now),W=p.wd*1440+p.H*60+p.M,best=null;
+    for(var i=0;i<LIVE.services.length;i++){var s=LIVE.services[i],S=s.day*1440+s.h*60+s.m,since=(W-S+10080)%10080;
+      if(since<s.len)return {live:true,s:s,i:i,left:(s.len-since)*60-p.S};
+      var diff=(S-W+10080)%10080,secs=diff*60-p.S;if(!best||secs<best.secs)best={s:s,i:i,secs:secs}}
+    best.live=false;best.at=new Date(now.getTime()+best.secs*1000);return best}
+  function lvLocal(d){try{return d.toLocaleString(undefined,{weekday:'long',hour:'numeric',minute:'2-digit'})}catch(e){return ''}}
+  function lvWhen(s){return LV_DAYS[s.day]+', '+lvClock(s.h,s.m)+' '+LIVE.tzLabel}
+  function lvSplit(t){t=Math.max(0,t);return [Math.floor(t/86400),Math.floor(t%86400/3600),Math.floor(t%3600/60),t%60]}
+  function lvRecent(n){var now=Date.now(),p=lvParts(new Date()),W=p.wd*1440+p.H*60+p.M,list=[];
+    LIVE.services.forEach(function(s){var S=s.day*1440+s.h*60+s.m,ago=(W-S+10080)%10080;[ago,ago+10080].forEach(function(a){if(a>=s.len)list.push({s:s,ago:a})})});
+    list.sort(function(a,b){return a.ago-b.ago});
+    return list.slice(0,n).map(function(o){var d=new Date(now-o.ago*60000);o.date=d.toLocaleDateString('en-US',{timeZone:LIVE.tz,weekday:'short',month:'short',day:'numeric',year:'numeric'});return o})}
+  function lvIcs(s){var now=Date.now();
+    var S=s.day*1440+s.h*60+s.m,p=lvParts(new Date()),W=p.wd*1440+p.H*60+p.M,diff=(S-W+10080)%10080;
+    var q=lvParts(new Date(now+diff*60000)),pad=function(v){return (v<10?'0':'')+v};
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+    var d=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Apostle Fatoki Global Outreach//Live//EN','BEGIN:VEVENT','UID:'+s.n.replace(/\W/g,'')+'@apostlefatoki.org','DTSTAMP:'+stamp,
+      'DTSTART;TZID='+LIVE.tz+':'+q.year+q.month+q.day+'T'+pad(s.h)+pad(s.m)+'00','DURATION:PT'+s.len+'M','RRULE:FREQ=WEEKLY','SUMMARY:'+s.n+' (Live)',
+      'DESCRIPTION:Watch live with Apostle Fatoki Global Outreach Inc.','BEGIN:VALARM','TRIGGER:-PT15M','ACTION:DISPLAY','DESCRIPTION:'+s.n+' starts in 15 minutes','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var l=document.createElement('a');l.href=URL.createObjectURL(new Blob([d],{type:'text/calendar'}));l.download=s.n.replace(/\s+/g,'-')+'.ics';document.body.appendChild(l);l.click();l.remove();
+    toast(s.n+' added to your calendar downloads')}
+  function lvEmbed(){return '<iframe src="https://www.youtube.com/embed/live_stream?channel='+LIVE.channel+'" title="Live service" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'}
+  function lvShare(){var url=location.href.split('#')[0]+(window.APP_PAGE?'#/live':'#live'),d={title:'Watch Live | Apostle Fatoki Global Outreach',text:'Join the live service with Apostle Samuel Fatoki',url:url};
+    if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')},function(){toast(url)});else toast(url)}
+
+  (function(){
+    $('#lvYt').href=LIVE.youtube;$('#lvFb').href=LIVE.facebook;var last=null;
+    function paint(){var st=lvState(),key=(st.live?'L':'N')+st.i;
+      if(key!==last){last=key;var s=st.s;
+        $('#lvName').textContent=s.n;$('#lvWhen').textContent=lvWhen(s);
+        $('#lvSt').className='st'+(st.live?' on':'');$('#lvSt').innerHTML=st.live?'<span class="dot" style="background:#ff6b6b"></span>Live Now':'Next Service';
+        $('#lvLocal').textContent=st.live?'Streaming now':'Your time: '+lvLocal(st.at);
+        $('#lvRemind').dataset.remind=st.i;
+        var f=$('#lvPlayer iframe');if(f)f.remove();
+        if(st.live&&LIVE.channel){$('#lvPlayer').insertAdjacentHTML('beforeend',lvEmbed());$('#lvIn').innerHTML=''}
+        else $('#lvIn').innerHTML=st.live
+          ?'<span class="tg on"><span class="dot"></span>LIVE NOW</span><img src="'+LGD+'" alt="Apostle Fatoki Global Outreach Inc."><b class="nm">'+s.n+'</b><div class="ac"><a class="btn btn-gold btn-sm" href="'+LIVE.youtube+'" target="_blank" rel="noopener">YouTube</a><a class="btn btn-line btn-sm" href="'+LIVE.facebook+'" target="_blank" rel="noopener">Facebook</a></div>'
+          :'<span class="tg">NEXT SERVICE</span><img src="'+LGD+'" alt="Apostle Fatoki Global Outreach Inc."><b class="nm">'+s.n+'</b>';
+        $$('.lvs').forEach(function(c){var k=+c.dataset.svc,on=k===st.i;c.classList.toggle('nx',on&&!st.live);c.classList.toggle('lv',on&&st.live);var b=c.querySelector('b'),sv=LIVE.services[k];b.innerHTML=esc(sv.n)+(on?'<em>'+(st.live?'LIVE':'NEXT')+'</em>':'')});
+        $('#lvCd').style.display=st.live?'none':'grid';}
+      if(!st.live){var t=lvSplit(st.secs),b=$$('#lvCd b');b[0].textContent=t[0];for(var k=1;k<4;k++)b[k].textContent=(t[k]<10?'0':'')+t[k]}}
+    $$('.lvs').forEach(function(c){var s=LIVE.services[+c.dataset.svc];c.querySelector('small').textContent=LV_DAYS[s.day]+' | '+lvClock(s.h,s.m)+' '+LIVE.tzLabel;c.querySelector('span:not(.ic)').textContent=s.x});
+    $('#lvRecent').innerHTML=lvRecent(3).map(function(o,k){var x=SERMONS[k];return '<div class="row" data-sermon="'+k+'">'+thumb(x)+'<div><h4>'+x.t+' '+x.h+'</h4><small>'+o.s.n+'<br>'+o.date+'</small></div><span></span></div>'}).join('');
+    paint();setInterval(paint,1000);
+  })();
   var sf='all';
   function renderS(){var q=$('#sSearch').value.trim().toLowerCase(),h='';
     SERMONS.forEach(function(x,i){var txt=(x.t+' '+x.h+' '+x.s+' '+x.d).toLowerCase();var ok=(sf==='all'||(sf==='saved'?saved.indexOf(i)>-1:x.c===sf))&&(!q||txt.indexOf(q)>-1);
