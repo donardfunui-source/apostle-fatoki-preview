@@ -651,6 +651,28 @@ img.noimg{opacity:0}
 .bkn{background:var(--navy);color:#fff;padding:1.1rem;border-top:3px solid var(--gold);margin-top:.6rem}
 .bkn h3{color:var(--gold);font-size:1rem;margin-bottom:.35rem}
 .bkn p{color:#cfd7e6!important;font-size:.86rem;margin-bottom:.8rem}
+.cbtn{position:relative;display:none}
+.cbtn.has{display:grid}
+.cbtn.bump{animation:cbump .45s}@keyframes cbump{40%{transform:scale(1.18)}}
+.cbadge{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 4px;display:grid;place-items:center;background:#c62f2f;color:#fff;font-size:.64rem;font-weight:700;border-radius:10px}
+.cbar{position:sticky;bottom:.6rem;z-index:5;width:100%;display:none;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;padding:.9rem 1rem;margin:.4rem 0 .9rem;background:var(--navy);color:#fff;border:0;border-bottom:3px solid var(--gold);cursor:pointer;font-family:inherit;box-shadow:0 8px 22px rgba(1,19,49,.3)}
+.cbar.has{display:grid}
+.cbar span{font-size:.78rem;color:#cfd7e6}.cbar span:last-child{text-align:right;font-family:var(--serif);font-size:1rem;color:var(--gold)}
+.cbar b{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.btn.inc{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.ci{display:grid;grid-template-columns:54px 1fr;gap:.8rem;padding:.75rem;background:#fff;border:1px solid var(--line2);margin-bottom:.55rem}
+.ci .bkc{width:54px;font-size:.3rem}.ci .bkc .au,.ci .bkc .pb,.ci .bkc i{display:none}.ci .bkc b{font-size:1.4em;overflow-wrap:anywhere}
+.ci b.t{display:block;color:var(--navy);font-size:.9rem;line-height:1.3}
+.ci small{color:var(--muted);font-size:.74rem}
+.ci-r{display:flex;align-items:center;justify-content:space-between;margin-top:.45rem}
+.ci-r strong{color:var(--navy);font-size:.92rem}
+.cq{display:inline-flex;border:1px solid var(--line2);height:32px}
+.cq button{width:32px;border:0;background:#fff;color:var(--navy);font-size:1rem;cursor:pointer}
+.cq span{width:32px;display:grid;place-items:center;font-weight:700;color:var(--navy);border-inline:1px solid var(--line2)}
+.ci-x{background:none;border:0;color:#a33;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0;margin-top:.4rem;cursor:pointer}
+.ctot{display:flex;justify-content:space-between;align-items:baseline;padding:.8rem 0;border-top:1px solid var(--line2);margin-top:.4rem;color:var(--muted);font-size:.85rem}
+.ctot b{font-family:var(--serif);font-size:1.35rem;color:var(--navy)}
+.cempty{text-align:center;color:var(--muted);padding:1.6rem 0}
 .osum{display:flex;gap:.8rem;align-items:center;background:#fff;border:1px solid var(--line2);padding:.7rem;margin-bottom:1rem}
 .osum .bkc{width:48px;font-size:.3rem;flex:none}
 .osum .bkc .au,.osum .bkc .pb,.osum .bkc i{display:none}
@@ -676,6 +698,7 @@ img.noimg{opacity:0}
       <span class="ttl" id="ttl"></span>
       <span class="sp"></span>
       <button class="live-pill" data-go="live" aria-label="Watch live"><span class="dot"></span>LIVE</button>
+      <button class="ib cbtn" data-cart aria-label="Open cart" id="cartBtn"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 14H5z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cbadge" id="cBadge"></span></button>
       <button class="ib" data-go="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
     </header>
 
@@ -801,6 +824,7 @@ img.noimg{opacity:0}
         <div class="pad" style="padding-top:0">
           <div class="sec-h"><h2>All Books</h2></div>
           <div id="bkList"></div>
+          <button class="cbar" id="cbar" data-cart><span id="cbarN">0 items</span><b>View Cart</b><span id="cbarT">$0.00</span></button>
           <div class="bkn"><h3>Orders for Churches and Bookstores</h3><p>Order copies in bulk for your church, Bible study group or bookstore.</p><a href="#/contact" class="btn btn-gold btn-sm">Contact Us</a></div>
         </div>
       </section>
@@ -1230,16 +1254,46 @@ img.noimg{opacity:0}
   function bkMeta(b){return b.pub+(b.y?' | '+b.y:'')}
   document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.src.indexOf('maxresdefault')>-1){t.classList.remove('noimg');t.src=t.src.replace('maxresdefault','hqdefault')}},true);
 
+  /* ===== Cart (saved on the device, shared by website and app) ===== */
+  var CART=(function(){try{return JSON.parse(localStorage.getItem('afgoCart'))||[]}catch(e){return []}})();
+  var cartUI=function(){};
+  function cSave(){try{localStorage.setItem('afgoCart',JSON.stringify(CART))}catch(e){}cartUI()}
+  function cFind(k){for(var i=0;i<CART.length;i++)if(CART[i].k===k)return CART[i];return null}
+  function cAdd(k,q){q=Math.max(1,q||1);var it=cFind(k);if(it)it.q=Math.min(99,it.q+q);else CART.push({k:k,q:q});cSave()}
+  function cQty(k,d){var it=cFind(k);if(!it)return;it.q+=d;if(it.q<1)CART=CART.filter(function(x){return x.k!==k});cSave()}
+  function cDel(k){CART=CART.filter(function(x){return x.k!==k});cSave()}
+  function cCount(){return CART.reduce(function(a,x){return a+x.q},0)}
+  function cTotal(){return CART.reduce(function(a,x){return a+x.q*BOOKS[x.k].p},0)}
+  function money(v){return '$'+(+v).toFixed(2)}
+  function cOrderText(){return CART.map(function(x){return x.q+' x '+BOOKS[x.k].t}).join(', ')}
+  window.addEventListener('storage',function(e){if(e.key==='afgoCart'){try{CART=JSON.parse(e.newValue)||[]}catch(_){CART=[]}cartUI()}});
+
   (function(){
     var f=BOOKS[0];
-    $('#bkFeat').innerHTML=bkCover(f,0)+'<span class="eyebrow">Latest Release</span><h2>'+f.t+'</h2><span class="m">'+bkMeta(f)+'</span><p>'+f.d+'</p><span class="pr">$'+f.p+'</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-gold" data-order="0">Order Now</button><button class="btn btn-line" data-share-book="0">Share</button></div>';
-    $('#bkList').innerHTML=BOOKS.map(function(b,k){return '<div class="bkr">'+bkCover(b,k)+'<div><h4>'+b.t+'</h4><small>'+bkMeta(b)+'</small><div class="ft"><b>$'+b.p+'</b><button class="btn btn-line btn-sm" data-order="'+k+'">Order</button></div></div></div>'}).join('');
-    function openOrder(k){openSheet(head('Order a Book','Our team will contact you with payment and delivery.')+'<div class="osum" id="oSum"></div><form class="f" id="ordF" novalidate><div class="fl"><label for="oB">Book</label><select id="oB" required>'+BOOKS.map(function(b,i){return '<option value="'+i+'"'+(i==k?' selected':'')+'>'+b.t+' ($'+b.p+')</option>'}).join('')+'</select></div><div class="fl"><label for="oQ">Quantity</label><input id="oQ" type="number" min="1" value="1" required inputmode="numeric"></div><div class="fl"><label for="oN">Full name</label><input id="oN" required autocomplete="name"></div><div class="fl"><label for="oE">Email</label><input id="oE" type="email" required autocomplete="email"></div><div class="fl"><label for="oP">Phone</label><input id="oP" type="tel" required autocomplete="tel"></div><div class="fl"><label for="oA">Delivery address</label><textarea id="oA" required style="min-height:80px" autocomplete="street-address"></textarea></div><div class="fl"><label for="oC">Country</label><input id="oC" required autocomplete="country-name"></div><button class="btn btn-gold btn-full" type="submit">Place Order</button></form>');
-      function sum(){var i=+$('#oB').value,b=BOOKS[i],q=Math.max(1,+$('#oQ').value||1);$('#oSum').innerHTML=bkCover(b,i)+'<div><b class="t">'+b.t+'</b><small>'+q+' x $'+b.p+' = $'+(q*b.p).toFixed(2)+'</small></div>'}
-      sum();$('#oB').onchange=sum;$('#oQ').oninput=sum;
-      hook($('#ordF'),'Your order has been received. Our team will contact you with payment and delivery details.',true)}
+    $('#bkFeat').innerHTML=bkCover(f,0)+'<span class="eyebrow">Latest Release</span><h2>'+f.t+'</h2><span class="m">'+bkMeta(f)+'</span><p>'+f.d+'</p><span class="pr">$'+f.p+'</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-line" data-add="0" data-feat="1">Add to Cart</button><button class="btn btn-gold" data-buy="0">Buy Now</button></div><button class="btn btn-sm" style="margin-top:.6rem;color:#a8812f;background:none;border:0" data-share-book="0">Share This Book</button>';
+    $('#bkList').innerHTML=BOOKS.map(function(b,k){return '<div class="bkr">'+bkCover(b,k)+'<div><h4>'+b.t+'</h4><small>'+bkMeta(b)+'</small><div class="ft"><b>$'+b.p+'</b><button class="btn btn-line btn-sm" data-add="'+k+'">Add</button></div></div></div>'}).join('');
+    var cartOpen=false,okOrder=false;
+    function cartHTML(){if(!CART.length)return head('Your Cart','')+'<div class="cempty"><p style="margin-bottom:1rem">Your cart is empty.</p><a class="btn btn-gold" href="#/books">Browse Books</a></div>';
+      var n=cCount();return head('Your Cart',n+(n===1?' item':' items'))+CART.map(function(x){var b=BOOKS[x.k];return '<div class="ci">'+bkCover(b,x.k)+'<div><b class="t">'+b.t+'</b><small>'+money(b.p)+' each</small><div class="ci-r"><div class="cq"><button type="button" data-cq="'+x.k+'" data-d="-1" aria-label="Fewer">&minus;</button><span>'+x.q+'</span><button type="button" data-cq="'+x.k+'" data-d="1" aria-label="More">+</button></div><strong>'+money(x.q*b.p)+'</strong></div><button class="ci-x" data-cdel="'+x.k+'">Remove</button></div></div>'}).join('')+
+        '<div class="ctot"><span>Subtotal</span><b>'+money(cTotal())+'</b></div><button class="btn btn-gold btn-full" id="goCo">Checkout</button><button class="btn btn-line btn-full" data-csx style="margin-top:.55rem">Continue Shopping</button>'}
+    function openCart(){cartOpen=true;openSheet(cartHTML())}
+    function openCo(){cartOpen=false;var n=cCount();
+      openSheet(head('Checkout',n+(n===1?' item':' items')+' | '+money(cTotal()))+'<div class="osum"><div><b class="t">'+cOrderText()+'</b><small>Total '+money(cTotal())+'</small></div></div><form class="f" id="coF" novalidate><div class="fl"><label for="oN">Full name</label><input id="oN" required autocomplete="name"></div><div class="fl"><label for="oE">Email</label><input id="oE" type="email" required autocomplete="email"></div><div class="fl"><label for="oP">Phone</label><input id="oP" type="tel" required autocomplete="tel"></div><div class="fl"><label for="oA">Delivery address</label><textarea id="oA" required style="min-height:80px" autocomplete="street-address"></textarea></div><div class="fl"><label for="oC">Country</label><input id="oC" required autocomplete="country-name"></div><div class="fl"><label for="oT">Order notes (optional)</label><textarea id="oT" style="min-height:70px"></textarea></div><button class="btn btn-gold btn-full" type="submit">Place Order</button></form>');
+      var f=$('#coF');f.addEventListener('submit',function(){okOrder=$$('[required]',f).every(function(i){return i.value.trim()&&(i.type!=='email'||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value))})});
+      hook(f,'Thank you for your order. Our team will contact you with payment and delivery details.',true);
+      f.addEventListener('submit',function(){if(okOrder){okOrder=false;CART=[];cSave()}})}
+    cartUI=function(){var n=cCount();$('#cBadge').textContent=n;$('#cartBtn').classList.toggle('has',n>0);$('#cbar').classList.toggle('has',n>0);$('#cbarN').textContent=n+(n===1?' item':' items');$('#cbarT').textContent=money(cTotal());
+      $$('[data-add]').forEach(function(a){if(a.dataset.feat)return;var on=!!cFind(+a.dataset.add);a.textContent=on?'In Cart':'Add';a.classList.toggle('inc',on)});
+      if(cartOpen&&$('#sheet').classList.contains('on'))$('#sheetBody').innerHTML=cartHTML()};
+    cartUI();
     document.addEventListener('click',function(e){
-      var o=e.target.closest('[data-order]');if(o){openOrder(+o.dataset.order);return}
+      if(e.target.closest('[data-csx]')){closeSheet();return}
+      if(e.target.closest('[data-cart]')){openCart();return}
+      if(e.target.closest('#goCo')){if(CART.length)openCo();return}
+      var a=e.target.closest('[data-add]');if(a){var k=+a.dataset.add;cAdd(k,1);toast(BOOKS[k].t+' added to your cart');var bt=$('#cartBtn');bt.classList.remove('bump');void bt.offsetWidth;bt.classList.add('bump');return}
+      var by=e.target.closest('[data-buy]');if(by){var k2=+by.dataset.buy;if(!cFind(k2))cAdd(k2,1);openCart();return}
+      var cq=e.target.closest('[data-cq]');if(cq){cQty(+cq.dataset.cq,+cq.dataset.d);return}
+      var cd=e.target.closest('[data-cdel]');if(cd){cDel(+cd.dataset.cdel);return}
       var sb=e.target.closest('[data-share-book]');if(sb){var b=BOOKS[+sb.dataset.shareBook],url=location.href.split('#')[0]+'#/books',d={title:b.t+' by Apostle Samuel Fatoki',text:b.t+' by Apostle Samuel Fatoki',url:url};if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')})}
     });
   })();

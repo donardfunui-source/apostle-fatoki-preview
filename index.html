@@ -630,6 +630,45 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
 .bk-box .ic svg{width:30px;height:30px;fill:var(--navy)}
 .bk-box h3{color:var(--gold);margin-bottom:.5rem}
 .bk-box p{color:#d5dcea;margin-bottom:1.1rem}
+.cart-btn{position:relative}
+.cart-btn.bump{animation:cbump .45s}
+@keyframes cbump{40%{transform:scale(1.18)}}
+.cbadge{position:absolute;top:-8px;right:-8px;min-width:20px;height:20px;padding:0 5px;display:none;place-items:center;background:#c62f2f;color:#fff;font-size:.68rem;font-weight:700;border-radius:10px;font-family:var(--sans)}
+.btn.inc{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.cdr{position:fixed;inset:0;z-index:300;visibility:hidden}
+.cdr.open{visibility:visible}
+.cdr-sc{position:absolute;inset:0;background:rgba(1,19,49,.6);opacity:0;transition:opacity .3s}
+.cdr.open .cdr-sc{opacity:1}
+.cdr-p{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--ivory);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s ease;border-left:4px solid var(--gold)}
+.cdr.open .cdr-p{transform:none}
+.cdr-h{display:flex;align-items:center;gap:.8rem;padding:1.2rem 1.4rem;background:var(--navy)}
+.cdr-h h3{color:#fff;flex:1;font-size:1.25rem}
+.cdr-h .x{position:static;width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--gold);font-size:1.5rem;cursor:pointer;transition:.2s}
+.cdr-h .x:hover{background:var(--gold);color:var(--navy)}
+.cdr-bk{display:none;background:none;border:0;color:var(--gold);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.cdr.co .cdr-bk{display:block}
+.cdr-b{flex:1;overflow:auto;padding:1.2rem 1.4rem}
+#coForm{display:none}.cdr.co #coForm{display:block}.cdr.co #cdrList{display:none}
+#coForm .fields{grid-template-columns:1fr}
+.ci{display:grid;grid-template-columns:64px 1fr;gap:1rem;padding:1rem;background:#fff;border:1px solid rgba(1,19,49,.08);margin-bottom:.7rem;transition:border-color .2s}
+.ci:hover{border-color:var(--gold)}
+.ci .bkc{width:64px;font-size:.33rem;box-shadow:2px 3px 8px rgba(1,19,49,.3)}
+.ci .bkc .au,.ci .bkc .pb,.ci .bkc i{display:none}
+.ci .bkc b{font-size:1.4em;overflow-wrap:anywhere}
+.ci b{display:block;color:var(--navy);font-family:var(--serif);font-size:.98rem;line-height:1.3}
+.ci small{color:var(--muted);font-size:.8rem}
+.ci-r{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem}
+.ci-r strong{color:var(--navy)}
+.bk-qty.sm{height:34px}.bk-qty.sm button{width:32px;font-size:1rem}.bk-qty.sm span{width:34px;display:grid;place-items:center;font-weight:700;color:var(--navy);border-inline:1px solid rgba(1,19,49,.15);background:#fff}
+.ci-x{background:none;border:0;color:#a33;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-top:.5rem;padding:0}
+.ci-x:hover{text-decoration:underline}
+.cdr-empty{text-align:center;padding:3rem 1rem;color:var(--muted)}.cdr-empty p{margin-bottom:1rem}
+.cdr-f{padding:1.1rem 1.4rem 1.3rem;border-top:1px solid rgba(1,19,49,.1);background:#fff;display:grid;gap:.6rem}
+.cdr-tot{display:flex;justify-content:space-between;align-items:baseline;color:var(--muted)}
+.cdr-tot b{font-family:var(--serif);font-size:1.5rem;color:var(--navy)}
+.cdr-f .btn{width:100%;justify-content:center}
+#cdrPlace{display:none}.cdr.co #cdrPlace{display:flex}.cdr.co #cdrGo,.cdr.co #cdrMore{display:none}
+.cdr.empty .cdr-f{display:none}
 #orderSum{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid rgba(1,19,49,.1);padding:.9rem;margin-bottom:1.2rem}
 #orderSum .bkc{width:62px;font-size:.38rem;box-shadow:2px 3px 8px rgba(1,19,49,.3);flex:none}
 #orderSum b{display:block;color:var(--navy);font-family:var(--serif)}
@@ -675,6 +714,7 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
     </ul>
     <div class="nav-cta">
       <button class="icon-btn" id="openSearch" aria-label="Search the site (Ctrl+K)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 14H5z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cbadge" id="cBadge"></span></button>
       <a href="#live" class="btn btn-gold btn-sm"><span class="live-dot"></span>Watch Live</a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
@@ -1098,7 +1138,8 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
         <div class="bk-price" id="bkFeatP"></div>
         <div class="bk-row">
           <div class="bk-qty"><button type="button" data-q="-1" aria-label="Fewer">&minus;</button><input id="bkFeatQ" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" data-q="1" aria-label="More">+</button></div>
-          <button class="btn btn-navy" data-order="0" id="bkFeatGo">Order Now</button>
+          <button class="btn btn-navy" data-add="0" id="bkFeatAdd">Add to Cart</button>
+          <button class="btn btn-gold" data-buy="0">Buy Now</button>
           <button class="btn btn-line" data-share-book="0">Share</button>
         </div>
       </div>
@@ -1232,23 +1273,25 @@ footer .getapp,footer .getapp:hover{color:var(--navy)}
   </div>
 </div>
 
-<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
-  <div class="box"><button class="x" data-close aria-label="Close">&times;</button>
-    <div class="hd"><h3 id="orderTitle">Order a Book</h3><p>Fill in your details and our team will contact you with payment and delivery.</p></div>
-    <div class="bd"><div id="orderSum"></div><form id="orderForm" novalidate>
-      <div class="fields">
-        <div class="field full"><label for="oBook">Book</label><select id="oBook" required></select></div>
-        <div class="field"><label for="oQty">Quantity</label><input id="oQty" type="number" min="1" value="1" required></div>
-        <div class="field"><label for="oName">Full name</label><input id="oName" required autocomplete="name"></div>
-        <div class="field"><label for="oEmail">Email</label><input id="oEmail" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="oPhone">Phone</label><input id="oPhone" type="tel" required autocomplete="tel"></div>
-        <div class="field full"><label for="oAddr">Delivery address</label><textarea id="oAddr" required style="min-height:90px" autocomplete="street-address"></textarea></div>
-        <div class="field full"><label for="oCountry">Country</label><input id="oCountry" required autocomplete="country-name"></div>
-      </div>
-      <button class="btn btn-navy" style="margin-top:1.2rem;width:100%" type="submit">Place Order</button>
-      <p class="form-msg" style="color:var(--gold-2)"></p>
-    </form></div>
-  </div>
+<div class="cdr" id="cartDr" aria-hidden="true"><div class="cdr-sc" data-cclose></div>
+  <aside class="cdr-p" role="dialog" aria-modal="true" aria-labelledby="cdrT">
+    <div class="cdr-h"><button class="cdr-bk" id="cdrBack" aria-label="Back to cart">&larr; Cart</button><h3 id="cdrT">Your Cart</h3><button class="x" data-cclose aria-label="Close cart">&times;</button></div>
+    <div class="cdr-b">
+      <div id="cdrList"></div>
+      <form id="coForm" novalidate>
+        <div class="fields">
+          <div class="field full"><label for="coName">Full name</label><input id="coName" required autocomplete="name"></div>
+          <div class="field full"><label for="coEmail">Email</label><input id="coEmail" type="email" required autocomplete="email"></div>
+          <div class="field full"><label for="coPhone">Phone</label><input id="coPhone" type="tel" required autocomplete="tel"></div>
+          <div class="field full"><label for="coAddr">Delivery address</label><textarea id="coAddr" required style="min-height:80px" autocomplete="street-address"></textarea></div>
+          <div class="field full"><label for="coCountry">Country</label><input id="coCountry" required autocomplete="country-name"></div>
+          <div class="field full"><label for="coNote">Order notes (optional)</label><textarea id="coNote" style="min-height:70px"></textarea></div>
+        </div>
+        <p class="form-msg" style="color:#c43d3d;margin-top:.6rem"></p>
+      </form>
+    </div>
+    <div class="cdr-f"><div class="cdr-tot"><span id="cdrItems">0 items</span><b id="cdrSum">$0.00</b></div><button class="btn btn-navy" id="cdrGo" type="button">Checkout</button><button class="btn btn-gold" id="cdrPlace" type="submit" form="coForm">Place Order</button><button class="btn btn-line" data-cclose id="cdrMore" type="button">Continue Shopping</button></div>
+  </aside>
 </div>
 <div class="modal" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
   <div class="box"><button class="x" data-close aria-label="Close">&times;</button>
@@ -1337,17 +1380,49 @@ var LOGO="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAADcCAYAAAABZi8PAADn
   function bkMeta(b){return b.pub+(b.y?' | '+b.y:'')}
   document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.src.indexOf('maxresdefault')>-1){t.classList.remove('noimg');t.src=t.src.replace('maxresdefault','hqdefault')}},true);
 
+  /* ===== Cart (saved on the device, shared by website and app) ===== */
+  var CART=(function(){try{return JSON.parse(localStorage.getItem('afgoCart'))||[]}catch(e){return []}})();
+  var cartUI=function(){};
+  function cSave(){try{localStorage.setItem('afgoCart',JSON.stringify(CART))}catch(e){}cartUI()}
+  function cFind(k){for(var i=0;i<CART.length;i++)if(CART[i].k===k)return CART[i];return null}
+  function cAdd(k,q){q=Math.max(1,q||1);var it=cFind(k);if(it)it.q=Math.min(99,it.q+q);else CART.push({k:k,q:q});cSave()}
+  function cQty(k,d){var it=cFind(k);if(!it)return;it.q+=d;if(it.q<1)CART=CART.filter(function(x){return x.k!==k});cSave()}
+  function cDel(k){CART=CART.filter(function(x){return x.k!==k});cSave()}
+  function cCount(){return CART.reduce(function(a,x){return a+x.q},0)}
+  function cTotal(){return CART.reduce(function(a,x){return a+x.q*BOOKS[x.k].p},0)}
+  function money(v){return '$'+(+v).toFixed(2)}
+  function cOrderText(){return CART.map(function(x){return x.q+' x '+BOOKS[x.k].t}).join(', ')}
+  window.addEventListener('storage',function(e){if(e.key==='afgoCart'){try{CART=JSON.parse(e.newValue)||[]}catch(_){CART=[]}cartUI()}});
+
   (function(){
-    var f=BOOKS[0];$('#bkFeatCv').innerHTML=bkCover(f,0);$('#bkFeatT').textContent=f.t;$('#bkFeatM').textContent=bkMeta(f);$('#bkFeatD').textContent=f.d;$('#bkFeatP').textContent='$'+f.p;
-    $('#bkGrid').innerHTML=BOOKS.map(function(b,k){return '<article class="bk-card reveal"><div class="cv">'+bkCover(b,k)+'</div><div class="bd">'+(b.tag?'<span class="tag">'+b.tag+'</span>':'')+'<h3>'+b.t+'</h3><span class="mt">'+bkMeta(b)+'</span><p>'+b.d+'</p><div class="ft"><b>$'+b.p+'</b><button class="btn btn-navy btn-sm" data-order="'+k+'">Order Now</button></div></div></article>'}).join('');
-    $('#oBook').innerHTML=BOOKS.map(function(b,k){return '<option value="'+k+'">'+b.t+' ($'+b.p+')</option>'}).join('');
-    function sum(){var b=BOOKS[+$('#oBook').value],q=Math.max(1,+$('#oQty').value||1);$('#orderSum').innerHTML=bkCover(b,+$('#oBook').value)+'<div><b>'+b.t+'</b><small>'+q+' x $'+b.p+' = $'+(q*b.p).toFixed(2)+'</small></div>'}
-    $('#oBook').addEventListener('change',sum);$('#oQty').addEventListener('input',sum);
+    var f=BOOKS[0];$('#bkFeatCv').innerHTML=bkCover(f,0);$('#bkFeatT').textContent=f.t;$('#bkFeatM').textContent=bkMeta(f);$('#bkFeatD').textContent=f.d;$('#bkFeatP').textContent=money(f.p);
+    $('#bkGrid').innerHTML=BOOKS.map(function(b,k){return '<article class="bk-card reveal"><div class="cv">'+bkCover(b,k)+'</div><div class="bd">'+(b.tag?'<span class="tag">'+b.tag+'</span>':'')+'<h3>'+b.t+'</h3><span class="mt">'+bkMeta(b)+'</span><p>'+b.d+'</p><div class="ft"><b>'+money(b.p)+'</b><button class="btn btn-navy btn-sm" data-add="'+k+'">Add to Cart</button></div></div></article>'}).join('');
+    var dr=$('#cartDr'),mode='cart';
+    function view(m){mode=m;dr.classList.toggle('co',m==='co');$('#cdrT').textContent=m==='co'?'Checkout':'Your Cart';cartUI()}
+    function openCart(m){view(m||'cart');dr.classList.add('open');dr.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+    function closeCart(){dr.classList.remove('open');dr.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+    cartUI=function(){var n=cCount(),b=$('#cBadge');b.textContent=n;b.style.display=n?'grid':'none';
+      $('#cdrItems').textContent=n+(n===1?' item':' items');$('#cdrSum').textContent=money(cTotal());
+      if(!CART.length){$('#cdrList').innerHTML='<div class="cdr-empty"><p>Your cart is empty.</p><a href="#books" class="btn btn-navy btn-sm" data-cclose>Browse Books</a></div>';if(mode==='co')view('cart');}
+      else $('#cdrList').innerHTML=CART.map(function(x){var b=BOOKS[x.k];return '<div class="ci">'+bkCover(b,x.k)+'<div><b>'+b.t+'</b><small>'+money(b.p)+' each</small><div class="ci-r"><div class="bk-qty sm"><button type="button" data-cq="'+x.k+'" data-d="-1" aria-label="Fewer">&minus;</button><span>'+x.q+'</span><button type="button" data-cq="'+x.k+'" data-d="1" aria-label="More">+</button></div><strong>'+money(x.q*b.p)+'</strong></div><button class="ci-x" data-cdel="'+x.k+'">Remove</button></div></div>'}).join('');
+      dr.classList.toggle('empty',!CART.length);
+      $$('[data-add]').forEach(function(a){var k=+a.dataset.add;if(a.id!=='bkFeatAdd')a.textContent=cFind(k)?'In Cart':'Add to Cart';a.classList.toggle('inc',!!cFind(k))})};
+    cartUI();
+    $('#cartBtn').onclick=function(){openCart()};$('#cdrGo').onclick=function(){if(CART.length)view('co')};$('#cdrBack').onclick=function(){view('cart')};
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('open'))closeCart()});
     document.addEventListener('click',function(e){
+      if(e.target.closest('[data-cclose]')){closeCart();return}
       var q=e.target.closest('[data-q]');if(q){var i=$('#bkFeatQ');i.value=Math.max(1,Math.min(99,(+i.value||1)+(+q.dataset.q)));return}
-      var o=e.target.closest('[data-order]');if(o){$('#oBook').value=o.dataset.order;$('#oQty').value=o.id==='bkFeatGo'?Math.max(1,+$('#bkFeatQ').value||1):1;sum();openM('#orderModal');return}
+      var a=e.target.closest('[data-add]');if(a){var k=+a.dataset.add,n=a.id==='bkFeatAdd'?Math.max(1,+$('#bkFeatQ').value||1):1;cAdd(k,n);toast(BOOKS[k].t+' added to your cart');var bt=$('#cartBtn');bt.classList.remove('bump');void bt.offsetWidth;bt.classList.add('bump');return}
+      var by=e.target.closest('[data-buy]');if(by){var k2=+by.dataset.buy;if(!cFind(k2))cAdd(k2,Math.max(1,+$('#bkFeatQ').value||1));openCart();return}
+      var cq=e.target.closest('[data-cq]');if(cq){cQty(+cq.dataset.cq,+cq.dataset.d);return}
+      var cd=e.target.closest('[data-cdel]');if(cd){cDel(+cd.dataset.cdel);return}
       var sb=e.target.closest('[data-share-book]');if(sb){var b=BOOKS[+sb.dataset.shareBook],url=location.href.split('#')[0]+'#books',d={title:b.t+' by Apostle Samuel Fatoki',text:b.t+' by Apostle Samuel Fatoki',url:url};if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')});}
     });
+    $('#coForm').addEventListener('input',function(e){var fd=e.target.closest('.field');if(fd&&e.target.value.trim())fd.classList.remove('err')});
+    var okOrder=false;
+    $('#coForm').addEventListener('submit',function(){okOrder=CART.length&&$$('#coForm [required]').every(function(i){return i.value.trim()&&(i.type!=='email'||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value))})});
+    window.afgoOrderDone=function(){if(!okOrder)return false;okOrder=false;CART=[];cSave();closeCart();view('cart');return true};
   })();
 
   /* ===== Live service settings (in WordPress these come from one settings screen) ===== */
@@ -1480,7 +1555,8 @@ var LOGO="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAADcCAYAAAABZi8PAADn
   function hook(id,msg){var f=$(id);f.addEventListener('submit',function(e){e.preventDefault();var m=f.querySelector('.form-msg')||f.parentNode.querySelector('.form-msg');if(!validate(f)){m.textContent='Please fill in the highlighted fields.';var fe=f.querySelector('.err input,.err select,.err textarea');if(fe)fe.focus();return}m.textContent='';f.reset();$$('.field.off',f).forEach(function(x){x.classList.remove('off')});$$('.modal.open').forEach(closeM);$('#thxMsg').textContent=msg;setLG();openM('#thxModal')})}
   hook('#contactForm','Your message has been received. Our team will get back to you.');
   hook('#regForm','Your registration has been received. We look forward to seeing you there.');
-  hook('#orderForm','Your order has been received. Our team will contact you with payment and delivery details.');
+  hook('#coForm','Thank you for your order. Our team will contact you with payment and delivery details.');
+  $('#coForm').addEventListener('submit',function(){setTimeout(function(){window.afgoOrderDone()},0)});
   hook('#applyForm','Your application to the School of Ministry has been received. Our admissions team will contact you with the next steps.');
   hook('#joinForm','You have signed up to serve. Our team will contact you.');
   hook('#newsForm','You are now subscribed to ministry updates.');
