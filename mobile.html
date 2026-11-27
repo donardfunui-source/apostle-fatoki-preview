@@ -741,6 +741,8 @@ img.noimg{opacity:0}
 .bkd .pq{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
 .bkd .pq b{font-family:var(--serif);font-size:1.5rem;color:var(--navy)}
 .bkd .cq{height:40px}.bkd .cq button{width:40px}.bkd .cq span{width:42px}
+
+.rdr.on{background:#010a1a}.rdr .rdr-h{padding-top:calc(.9rem + env(safe-area-inset-top))}.rdr .rdr-f{padding-bottom:calc(1.3rem + env(safe-area-inset-bottom));align-items:stretch}.rdr .rdr-bb{height:auto;min-height:46px;padding:0 1.3rem}
 </style>
 </head>
 <body>
@@ -1091,7 +1093,7 @@ img.noimg{opacity:0}
     <div class="rdr" id="reader" role="dialog" aria-modal="true" aria-label="Look inside the book">
   <div class="rdr-h"><button class="rdr-back" id="rdBack" aria-label="Back to book"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg>Back</button><b id="rdT"></b><span id="rdN"></span><button class="rdr-x" id="rdX" aria-label="Close preview">&times;</button></div>
   <div class="rdr-st"><button class="rdr-nv" id="rdP" aria-label="Previous page">&#8249;</button><div class="rdr-bk" id="rdBk"></div><button class="rdr-nv" id="rdNx" aria-label="Next page">&#8250;</button></div>
-  <div class="rdr-f"><button class="btn btn-gold" id="rdAdd">Add to Cart</button></div>
+  <div class="rdr-f"><button class="rdr-back rdr-bb" id="rdBack2" aria-label="Back to book"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg>Back</button><button class="btn btn-gold" id="rdAdd">Add to Cart</button></div>
 </div>
     <div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Photo viewer">
       <button class="lx" id="lbxX" aria-label="Close">&times;</button>
@@ -1384,7 +1386,7 @@ img.noimg{opacity:0}
     $('#rdP').disabled=RD.i<=0;$('#rdNx').disabled=RD.i+st>=n}
   function openReader(k){var b=BOOKS[k];RD={b:k,i:0,pg:bkPages(b)};$('#rdT').textContent=b.t;rdShow();$('#reader').classList.add('on');document.body.style.overflow='hidden';try{history.pushState({rdr:1},'')}catch(e){}}
   function closeReader(){$('#reader').classList.remove('on');document.body.style.overflow=''}
-  $('#rdX').onclick=function(){rdBack()};$('#rdBack').onclick=function(){rdBack()};function rdBack(){if(history.state&&history.state.rdr){history.back()}else{closeReader()}}window.addEventListener('popstate',function(){if($('#reader').classList.contains('on'))closeReader()});
+  $('#rdX').onclick=function(){rdBack()};$('#rdBack').onclick=function(){rdBack()};$('#rdBack2').onclick=function(){rdBack()};function rdBack(){if(history.state&&history.state.rdr){history.back()}else{closeReader()}}window.addEventListener('popstate',function(){if($('#reader').classList.contains('on'))closeReader()});
   $('#rdP').onclick=function(){RD.i=Math.max(0,RD.i-(rdOne()?1:2));rdShow()};
   $('#rdNx').onclick=function(){RD.i=Math.min(RD.pg.length-1,RD.i+(rdOne()?1:2));rdShow()};
   document.addEventListener('keydown',function(e){if(!$('#reader').classList.contains('on'))return;if(e.key==='Escape')rdBack();if(e.key==='ArrowRight')$('#rdNx').click();if(e.key==='ArrowLeft')$('#rdP').click()});
