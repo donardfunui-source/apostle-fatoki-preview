@@ -679,6 +679,67 @@ img.noimg{opacity:0}
 .osum .bkc b{font-size:1.4em;overflow-wrap:anywhere}
 .osum b.t{display:block;color:var(--navy);font-size:.9rem}
 .osum small{color:var(--muted);font-size:.78rem}
+
+/* ===== v10 3D book mockups ===== */
+.bkc{position:relative;aspect-ratio:2/3;container-type:inline-size;perspective:1600px;display:block!important;padding:0!important;overflow:visible!important;background:none!important;box-shadow:none!important;transform:none!important}
+.bkc::before,.bkc::after{display:none!important}
+.bkc .bi{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(-30deg);transition:transform .7s cubic-bezier(.2,.7,.2,1);--t:4.6cqw}
+.bkc .fr{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateZ(var(--t));border-radius:0 2px 2px 0;display:block}
+.bkc .gl{position:absolute;inset:0;transform:translateZ(calc(var(--t) + .6px));pointer-events:none;border-radius:0 2px 2px 0;background:linear-gradient(90deg,rgba(0,0,0,.3) 0,rgba(255,255,255,.3) 1.3%,rgba(0,0,0,.14) 2.8%,rgba(0,0,0,0) 6.5%),linear-gradient(105deg,rgba(255,255,255,0) 52%,rgba(255,255,255,.16) 68%,rgba(255,255,255,0) 84%)}
+.bkc .pg{position:absolute;top:1.3%;bottom:1.3%;left:calc(100% - 1px);width:calc(var(--t) * 2 - 2px);transform-origin:left center;transform:translateZ(var(--t)) rotateY(90deg);background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,0) 35%,rgba(0,0,0,.18)),repeating-linear-gradient(90deg,#fffdf6 0 1px,#ddd6c4 1px 2px)}
+.bkc .bc{position:absolute;inset:0;transform:translateZ(calc(var(--t) * -1));background:#3a3a3a;border-radius:0 2px 2px 0;box-shadow:18px 10px 30px rgba(1,19,49,.32)}
+.bkc .sh{position:absolute;left:6%;right:-10%;bottom:-5%;height:9%;background:radial-gradient(ellipse at center,rgba(1,19,49,.45),rgba(1,19,49,0) 70%);filter:blur(5px)}
+[data-book]{cursor:pointer}
+[data-book]:hover .bkc .bi,.bkc:hover .bi{transform:rotateY(-8deg) translateY(-2%)}
+.ci .bkc .bi,#orderSum .bkc .bi,.bkr .bkc .bi,.osum .bkc .bi{transform:rotateY(-20deg)}
+.ci .bkc .sh,#orderSum .bkc .sh,.bkr .bkc .sh,.osum .bkc .sh{display:none}
+
+.rdr{position:fixed;inset:0;z-index:400;background:rgba(1,10,26,.985);display:none;flex-direction:column;color:#fff}
+.rdr.on{display:flex}
+.rdr-h{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;border-bottom:1px solid rgba(230,181,88,.22)}
+.rdr-h b{flex:1;font-family:'Cinzel',Georgia,serif;color:#E6B558;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rdr-h span{color:#9fb0cc;font-size:.82rem;white-space:nowrap}
+.rdr-x{width:42px;height:42px;border:1px solid rgba(230,181,88,.4);background:transparent;color:#E6B558;font-size:1.5rem;cursor:pointer;transition:.2s;flex:none}
+.rdr-x:hover{background:#E6B558;color:#011331}
+.rdr-st{flex:1;display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:1.2rem;min-height:0}
+.rdr-nv{width:48px;height:48px;flex:none;border:1px solid rgba(230,181,88,.4);background:transparent;color:#E6B558;font-size:1.6rem;cursor:pointer;transition:.2s}
+.rdr-nv:hover{background:#E6B558;color:#011331}.rdr-nv:disabled{opacity:.25;pointer-events:none}
+.rdr-bk{display:flex;flex:none;width:min(calc((100vh - 200px) * 4 / 3),calc(100vw - 180px));aspect-ratio:4/3;box-shadow:0 24px 60px rgba(0,0,0,.55);position:relative}
+.rdr-bk.one{aspect-ratio:2/3;width:min(calc((100vh - 200px) * 2 / 3),calc(100vw - 180px))}
+@media (max-width:760px){.rdr-st{flex-wrap:wrap;align-content:center;gap:1rem}.rdr-bk,.rdr-bk.one{order:-1;width:min(calc((100vh - 260px) * 2 / 3),calc(100vw - 32px))}.rdr-st .rdr-nv{margin:0 1.5rem}}
+.rdr-bk::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:40px;margin-left:-20px;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.18) 45%,rgba(0,0,0,.28) 50%,rgba(0,0,0,.18) 55%,rgba(0,0,0,0));pointer-events:none}
+.rdr-bk.one::after{display:none}
+.rdr-bk .pp{flex:1;min-width:0;background:#fbf7ec;color:#1b2333;overflow:hidden;position:relative;animation:pfade .45s ease}
+.rdr-bk .pp.empty{background:transparent}
+@keyframes pfade{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.rp{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9% 10%}
+.rp.rcv,.rp.rim{padding:0}.rp.rcv img,.rp.rim img{width:100%;height:100%;object-fit:cover}
+.rp small{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#a8812f;font-weight:700}
+.rp h2{font-family:'Cinzel',Georgia,serif;color:#011331;font-size:clamp(1.2rem,2.4vw,2rem);line-height:1.2;margin:1.2rem 0}
+.rp h4{font-family:'Cinzel',Georgia,serif;color:#011331;font-size:clamp(1rem,1.8vw,1.35rem)}
+.rp i{display:block;width:56px;height:2px;background:#E6B558;margin:1rem auto}
+.rp span{color:#6b7487;font-size:.85rem;line-height:1.6}
+.rp p{color:#3a4256;font-size:clamp(.85rem,1.3vw,1rem);line-height:1.75;max-width:34ch}
+.rp dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;margin-top:1.4rem;text-align:left;font-size:.82rem}
+.rp dt{color:#a8812f;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;padding-top:.1rem}
+.rp dd{color:#1b2333}
+.rp.rsm svg{width:44px;height:44px;fill:none;stroke:#E6B558;stroke-width:1.5;margin:1.2rem 0}
+.rdr-f{display:flex;justify-content:center;gap:.8rem;padding:0 1.2rem 1.3rem;flex-wrap:wrap}
+
+.rdr{background:rgba(1,10,26,.985)}
+.bkf .bkc{width:190px;margin:0 auto 1.4rem}
+.bkf .lk,.bkd .lk{background:none;border:0;border-bottom:2px solid var(--gold);padding:.2rem 0;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);cursor:pointer;margin-bottom:1rem}
+.bkr .bkc{width:66px}
+.bkr h4[data-book]{cursor:pointer}
+.bkd{text-align:center}
+.bkd .bkc{width:170px;margin:.6rem auto 1.3rem}
+.bkd p.d{font-size:.9rem;margin:.4rem 0 .9rem;color:var(--txt)}
+.bkd dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem .9rem;text-align:left;font-size:.82rem;padding:.8rem 0;border-block:1px solid var(--line2);margin-bottom:.9rem}
+.bkd dt{color:#a8812f;font-weight:700;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;padding-top:.15rem}
+.bkd dd{color:var(--navy)}
+.bkd .pq{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
+.bkd .pq b{font-family:var(--serif);font-size:1.5rem;color:var(--navy)}
+.bkd .cq{height:40px}.bkd .cq button{width:40px}.bkd .cq span{width:42px}
 </style>
 </head>
 <body>
@@ -1026,6 +1087,11 @@ img.noimg{opacity:0}
 
     <div class="scrim" id="scrim"></div>
     <div class="sheet lt" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div>
+    <div class="rdr" id="reader" role="dialog" aria-modal="true" aria-label="Look inside the book">
+  <div class="rdr-h"><b id="rdT"></b><span id="rdN"></span><button class="rdr-x" id="rdX" aria-label="Close preview">&times;</button></div>
+  <div class="rdr-st"><button class="rdr-nv" id="rdP" aria-label="Previous page">&#8249;</button><div class="rdr-bk" id="rdBk"></div><button class="rdr-nv" id="rdNx" aria-label="Next page">&#8250;</button></div>
+  <div class="rdr-f"><button class="btn btn-gold" id="rdAdd">Add to Cart</button></div>
+</div>
     <div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Photo viewer">
       <button class="lx" id="lbxX" aria-label="Close">&times;</button>
       <img id="lbxImg" alt="">
@@ -1250,7 +1316,15 @@ img.noimg{opacity:0}
     {t:"The Secret of Peace",y:"",pub:"Christian Faith Publishing",p:"11.99",tag:"",d:"Apostle Samuel Fatoki's teaching on the peace of God for the believer and the family."},
     {t:"Be Strengthened With All Might",y:"2015",pub:"Creation House",p:"13.99",tag:"",d:"A charge to embrace Colossians 1:10-11 and live a strong, fruitful Christian life."}
   ];
-  function bkCover(b,k){return '<div class="bkc v'+(k%4)+'"><span class="au">Apostle Samuel Fatoki</span><b>'+b.t+'</b><i></i><span class="pb">'+b.pub+'</span></div>'}
+
+  [["books/power-to-overcome-depression.jpg","2024",""],["books/power-for-living.jpg","2021","9781639610433"],["books/secret-of-peace.jpg","",""],["books/be-strengthened-with-all-might.jpg","2015","9781621367802"]].forEach(function(v,i){BOOKS[i].img=v[0];BOOKS[i].isbn=v[2];BOOKS[i].pv=BOOKS[i].pv||[]});
+  function bkCover(b,k){return '<div class="bkc"><div class="sh"></div><div class="bi"><span class="bc"></span><span class="pg"></span><img class="fr" src="'+b.img+'" alt="'+b.t+' book cover"><span class="gl"></span></div></div>'}
+  function bkPages(b){var p=['<div class="rp rcv"><img src="'+b.img+'" alt="'+b.t+' cover"></div>',
+      '<div class="rp rtp"><small>Apostle Samuel Fatoki</small><h2>'+b.t+'</h2><i></i><span>'+b.pub+(b.y?'<br>'+b.y:'')+'</span></div>',
+      '<div class="rp rtx"><h4>About This Book</h4><i></i><p>'+b.d+'</p><dl><dt>Author</dt><dd>Apostle Samuel Fatoki</dd><dt>Publisher</dt><dd>'+b.pub+'</dd>'+(b.y?'<dt>Published</dt><dd>'+b.y+'</dd>':'')+(b.isbn?'<dt>ISBN</dt><dd>'+b.isbn+'</dd>':'')+'</dl></div>'];
+    if(b.pv.length)b.pv.forEach(function(u,i){p.push('<div class="rp rim"><img src="'+u+'" alt="Sample page '+(i+1)+'"></div>')});
+    else p.push('<div class="rp rtx rsm"><h4>Sample Pages</h4><i></i><p>A preview of the first chapter will be added here.</p><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 2h13v-4"/></svg><p>Order your copy to read the full book.</p></div>');
+    return p}
   function bkMeta(b){return b.pub+(b.y?' | '+b.y:'')}
   document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.src.indexOf('maxresdefault')>-1){t.classList.remove('noimg');t.src=t.src.replace('maxresdefault','hqdefault')}},true);
 
@@ -1270,8 +1344,8 @@ img.noimg{opacity:0}
 
   (function(){
     var f=BOOKS[0];
-    $('#bkFeat').innerHTML=bkCover(f,0)+'<span class="eyebrow">Latest Release</span><h2>'+f.t+'</h2><span class="m">'+bkMeta(f)+'</span><p>'+f.d+'</p><span class="pr">$'+f.p+'</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-line" data-add="0" data-feat="1">Add to Cart</button><button class="btn btn-gold" data-buy="0">Buy Now</button></div><button class="btn btn-sm" style="margin-top:.6rem;color:#a8812f;background:none;border:0" data-share-book="0">Share This Book</button>';
-    $('#bkList').innerHTML=BOOKS.map(function(b,k){return '<div class="bkr">'+bkCover(b,k)+'<div><h4>'+b.t+'</h4><small>'+bkMeta(b)+'</small><div class="ft"><b>$'+b.p+'</b><button class="btn btn-line btn-sm" data-add="'+k+'">Add</button></div></div></div>'}).join('');
+    $('#bkFeat').innerHTML='<div data-book="0">'+bkCover(f,0)+'</div><button class="lk" data-read="0">Look Inside</button><br><span class="eyebrow">Latest Release</span><h2>'+f.t+'</h2><span class="m">'+bkMeta(f)+'</span><p>'+f.d+'</p><span class="pr">$'+f.p+'</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-line" data-add="0" data-feat="1">Add to Cart</button><button class="btn btn-gold" data-buy="0">Buy Now</button></div><button class="btn btn-sm" style="margin-top:.6rem;color:#a8812f;background:none;border:0" data-share-book="0">Share This Book</button>';
+    $('#bkList').innerHTML=BOOKS.map(function(b,k){return '<div class="bkr"><div data-book="'+k+'">'+bkCover(b,k)+'</div><div><h4 data-book="'+k+'">'+b.t+'</h4><small>'+bkMeta(b)+'</small><div class="ft"><b>$'+b.p+'</b><button class="btn btn-line btn-sm" data-add="'+k+'">Add</button></div></div></div>'}).join('');
     var cartOpen=false,okOrder=false;
     function cartHTML(){if(!CART.length)return head('Your Cart','')+'<div class="cempty"><p style="margin-bottom:1rem">Your cart is empty.</p><a class="btn btn-gold" href="#/books">Browse Books</a></div>';
       var n=cCount();return head('Your Cart',n+(n===1?' item':' items'))+CART.map(function(x){var b=BOOKS[x.k];return '<div class="ci">'+bkCover(b,x.k)+'<div><b class="t">'+b.t+'</b><small>'+money(b.p)+' each</small><div class="ci-r"><div class="cq"><button type="button" data-cq="'+x.k+'" data-d="-1" aria-label="Fewer">&minus;</button><span>'+x.q+'</span><button type="button" data-cq="'+x.k+'" data-d="1" aria-label="More">+</button></div><strong>'+money(x.q*b.p)+'</strong></div><button class="ci-x" data-cdel="'+x.k+'">Remove</button></div></div>'}).join('')+
@@ -1295,6 +1369,42 @@ img.noimg{opacity:0}
       var cq=e.target.closest('[data-cq]');if(cq){cQty(+cq.dataset.cq,+cq.dataset.d);return}
       var cd=e.target.closest('[data-cdel]');if(cd){cDel(+cd.dataset.cdel);return}
       var sb=e.target.closest('[data-share-book]');if(sb){var b=BOOKS[+sb.dataset.shareBook],url=location.href.split('#')[0]+'#/books',d={title:b.t+' by Apostle Samuel Fatoki',text:b.t+' by Apostle Samuel Fatoki',url:url};if(navigator.share)navigator.share(d).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(d.text+' '+url).then(function(){toast('Link copied')})}
+    });
+  })();
+
+  
+  var RD={b:0,i:0,pg:[]};
+  function rdOne(){return innerWidth<760}
+  function rdShow(){var one=rdOne(),st=one?1:2,bk=$('#rdBk'),n=RD.pg.length;
+    if(!one&&RD.i%2)RD.i--;
+    var a=RD.pg[RD.i]||'',b2=one?null:(RD.pg[RD.i+1]||'');
+    bk.className='rdr-bk'+(one?' one':'');bk.innerHTML='<div class="pp">'+a+'</div>'+(one?'':'<div class="pp'+(b2?'':' empty')+'">'+b2+'</div>');
+    $('#rdN').textContent=one?('Page '+(RD.i+1)+' of '+n):('Pages '+(RD.i+1)+(b2?'-'+(RD.i+2):'')+' of '+n);
+    $('#rdP').disabled=RD.i<=0;$('#rdNx').disabled=RD.i+st>=n}
+  function openReader(k){var b=BOOKS[k];RD={b:k,i:0,pg:bkPages(b)};$('#rdT').textContent=b.t;rdShow();$('#reader').classList.add('on');document.body.style.overflow='hidden'}
+  function closeReader(){$('#reader').classList.remove('on');document.body.style.overflow=''}
+  $('#rdX').onclick=closeReader;
+  $('#rdP').onclick=function(){RD.i=Math.max(0,RD.i-(rdOne()?1:2));rdShow()};
+  $('#rdNx').onclick=function(){RD.i=Math.min(RD.pg.length-1,RD.i+(rdOne()?1:2));rdShow()};
+  document.addEventListener('keydown',function(e){if(!$('#reader').classList.contains('on'))return;if(e.key==='Escape')closeReader();if(e.key==='ArrowRight')$('#rdNx').click();if(e.key==='ArrowLeft')$('#rdP').click()});
+  var rdx=0;$('#rdBk').addEventListener('touchstart',function(e){rdx=e.touches[0].clientX},{passive:true});
+  $('#rdBk').addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-rdx;if(Math.abs(d)>45)(d<0?$('#rdNx'):$('#rdP')).click()});
+  window.addEventListener('resize',function(){if($('#reader').classList.contains('on'))rdShow()});
+
+  (function(){
+    var cur=0,qty=1;
+    function dq(){$('#bdQ').textContent=qty}
+    function openBook(k){var b=BOOKS[k];cur=k;qty=1;
+      openSheet(head(b.t,'Apostle Samuel Fatoki')+'<div class="bkd">'+bkCover(b,k)+'<button class="lk" data-read="'+k+'">Look Inside</button><p class="d">'+b.d+'</p><dl><dt>Publisher</dt><dd>'+b.pub+'</dd>'+(b.y?'<dt>Published</dt><dd>'+b.y+'</dd>':'')+'<dt>Format</dt><dd>Paperback</dd>'+(b.isbn?'<dt>ISBN</dt><dd>'+b.isbn+'</dd>':'')+'</dl>'+
+        '<div class="pq"><b>'+money(b.p)+'</b><div class="cq"><button type="button" data-bdq="-1" aria-label="Fewer copies">&minus;</button><span id="bdQ">1</span><button type="button" data-bdq="1" aria-label="More copies">+</button></div></div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem"><button class="btn btn-line" id="bdAdd">Add to Cart</button><button class="btn btn-gold" id="bdBuy">Buy Now</button></div></div>')}
+    $('#rdAdd').onclick=function(){cAdd(RD.b,1);toast(BOOKS[RD.b].t+' added to your cart')};
+    document.addEventListener('click',function(e){
+      var r=e.target.closest('[data-read]');if(r){openReader(+r.dataset.read);return}
+      var q=e.target.closest('[data-bdq]');if(q){qty=Math.max(1,Math.min(99,qty+(+q.dataset.bdq)));dq();return}
+      if(e.target.closest('#bdAdd')){cAdd(cur,qty);toast(qty+(qty>1?' copies of ':' copy of ')+BOOKS[cur].t+' added to your cart');closeSheet();return}
+      if(e.target.closest('#bdBuy')){cAdd(cur,qty);$('#cartBtn').click();return}
+      var bk=e.target.closest('[data-book]');if(bk){openBook(+bk.dataset.book)}
     });
   })();
 
