@@ -251,7 +251,7 @@ details.acc .b .btn{margin-top:.8rem}
 .sw input:checked+i::after{transform:translateX(20px);background:var(--navy)}
 
 /* Tab bar */
-.tabs{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(1,12,32,.97);border-top:1px solid var(--line);padding-bottom:var(--bot);z-index:20}
+.tabs{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(6,1fr);background:rgba(1,12,32,.97);border-top:1px solid var(--line);padding-bottom:var(--bot);z-index:20}
 .tabs a{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.6rem 0 .65rem;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8d99b0;position:relative;transition:color .2s}
 .tabs a svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .2s}
 .tabs a.on{color:var(--gold)}
@@ -743,6 +743,8 @@ img.noimg{opacity:0}
 .bkd .cq{height:40px}.bkd .cq button{width:40px}.bkd .cq span{width:42px}
 
 .rdr.on{background:#010a1a}.rdr .rdr-h{padding-top:calc(.9rem + env(safe-area-inset-top))}.rdr .rdr-f{padding-bottom:calc(1.3rem + env(safe-area-inset-bottom));align-items:stretch}.rdr .rdr-bb{height:auto;min-height:46px;padding:0 1.3rem}
+
+.tabs a{letter-spacing:.06em;font-size:.58rem}
 </style>
 </head>
 <body>
@@ -1085,6 +1087,7 @@ img.noimg{opacity:0}
       <a href="#/sermons" data-t="sermons"><svg viewBox="0 0 24 24"><path d="M4 5h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/></svg>Sermons</a>
       <a href="#/live" data-t="live" class="live-t"><span class="lv"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Live</a>
       <a href="#/give" data-t="give"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg>Give</a>
+      <a href="#/books" data-t="books"><svg viewBox="0 0 24 24"><path d="M4 4h4v16H4zM9 4h4v16H9z"/><path d="M14.2 5.2l3.8-1 3.9 14.6-3.8 1z"/><path d="M4 8h4M9 8h4"/></svg>Books</a>
       <a href="#/more" data-t="more"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>More</a>
     </nav>
 
@@ -1147,7 +1150,7 @@ img.noimg{opacity:0}
   var TEAMS=[["Crusade Team","Help organise and serve at crusades and outreach events.",'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'],["Prayer Team","Stand with the ministry in prayer for every service and event.",'<path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>'],["Media Team","Serve with cameras, livestream, editing and social media.",'<rect x="3" y="5" width="18" height="12"/><path d="M8 21h8M12 17v4"/>'],["Ushers & Protocol","Welcome guests and help services run in order.",'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/>'],["Worship Team","Lead the congregation in praise and worship.",'<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>']];
 
   /* Router */
-  var TABS=['home','sermons','live','give','more'];
+  var TABS=['home','sermons','live','give','books','more'];
   var TITLES={about:'About Us',gallery:'Gallery',events:'Events',school:'School of Ministry',books:'Books',involved:'Get Involved',prayer:'Prayer Request',contact:'Contact Us',search:'Search'};
   var prev='home',hist=[];
   function route(){
